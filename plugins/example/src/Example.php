@@ -121,9 +121,244 @@ class Example extends CommonDBTM {
       $params = $options;
       //do not display called elements per default; they'll be displayed or returned here
       $params['display'] = false ;
+      // ***************************************************************************************
+      $out ="</td></tr><tr><td>
+      <script>
+      
+      function showBlocks(){
+          console.log('showBlocks');
+          var getSelectValue = document.getElementById('RequestType').value;
+          if(getSelectValue !==''){
+            if((getSelectValue == '1.Προσθήκη δικαιωμάτων χρήστη.')||
+               (getSelectValue == '2.Αφαίρεση δικαιωμάτων χρήστη.')||
+               (getSelectValue == '3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.')){
+               //document.getElementById('UserName').style.display='block';
+               document.getElementById('UserRights').style.display='table-row';
+               document.getElementById('InternetPages').style.display='table-row';
+               document.getElementById('HWRights').style.display='table-row';
+               document.getElementById('PassRequestTypeVar').value  = '1' ;
+               }else{ 
+               // document.getElementById('UserName').style.display='block';
+                  document.getElementById('UserRights').style.display='none';
+                  document.getElementById('InternetPages').style.display='none';
+                  document.getElementById('HWRights').style.display='none';
+               }   
+            if(
+               (getSelectValue == '4.Διαγραφή χρήστη/κατάργηση δικαιωμάτων.')){
+                  document.getElementById('UserName').style.display='table-row';
+                  document.getElementById('PassRequestTypeVar').value  = '2';
+               }else{
+                  document.getElementById('UserName').style.display='block';
+               7}
+         
+         }
+          //alert(getSelectValue);
+          if(getSelectValue ===''){
+            getSelectValue = '1.Προσθήκη δικαιωμάτων χρήστη.' ; 
+            document.getElementById('PassRequestTypeVar').value  = '1' ; 
+          }
+          
+          //document.getElementById('PassValue').style.display='block';
+          
+      }
+   </script>
+       <form name='AddTicketform' action='/plugins/example/front/addnpticket.form.php' method='post'>
+       <input type='hidden' name='id' value='23'>
+       <Input type='hidden' name='item' value='32'>
+       <input type='hidden' name='_glpi_csrf_token' value='".Session::getNewCSRFToken()."'>
+       <input type='hidden' name='PassRequestTypeVar' value=''>
+       ";
+       $out .="<div id='MainFormTable' style='display:block;'>";
+       $out .="<table style = 'text-align:left;' border=1 >";
+       $out .="<tr><td nowrap='true' valign='top' width='113px' ><span  id='_x0395__x03af__x03b4__x03bf__x03'>
+       <nobr>Είδος αίτησης<span class='ms-accentText' title='Αυτό το πεδίο είναι υποχρεωτικό.'> *</span></nobr>
+       </span></td><td>
+                <select name='requestType' id='RequestType' title='Είδος αίτησης Απαιτούμενο πεδίο' onchange='showBlocks()'>
+                   <option value='' selected='selected'></option>
+                   <option value='1.Προσθήκη δικαιωμάτων χρήστη.'>1.Προσθήκη δικαιωμάτων χρήστη.</option>
+                   <option value='2.Αφαίρεση δικαιωμάτων χρήστη.'>2.Αφαίρεση δικαιωμάτων χρήστη.</option>
+                   <option value='3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.'>3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.</option>
+                   <option value='4.Διαγραφή χρήστη/κατάργηση δικαιωμάτων.'>4.Διαγραφή χρήστη/κατάργηση δικαιωμάτων.</option>
+               </select>
+       </td></tr>
+       <tr><td>Τίτλος-Περιγραφή αιτήματος </td><td><input type='text' value='' maxlength='255' name='TitleTxt' title='Τίτλος-Περιγραφή αιτήματος Απαιτούμενο πεδίο'></td></tr>"; 
+       $out .="<tr><td nowrap='true' valign='top' width='113px' ><span  id='_x03a0__x03b5__x03c1__x03b9__x03'>
+                       <nobr>Περιγραφή</nobr></span></td><td valign='top' width='350px' class='ms-formbody'>
+                   <span dir='none'><span dir='ltr'><textarea rows='10' cols='120' name='RequestDescription' title='Πρόγραμμα επεξεργασίας εμπλουτισμένου κειμένου Περιγραφή' class='ms-long'></textarea><input type='hidden' id='TextField_spSave'></span><br><span class='ms-formdescription'></span><br></span>				
+               </td>
+           </tr>";
+       $out .="<tr><td nowrap='true' valign='top' width='113px' ><span  id='_x039a__x03bb__x03ac__x03b4__x03'>
+           <nobr>Κλάδος/Τμήμα<span class='ms-accentText' title='Αυτό το πεδίο είναι υποχρεωτικό.'> *</span></nobr></span></td>
+           <td valign='top' width='350px' class='ms-formbody'>
+           <span dir='none'><select name='klados' id='Klados' title='Κλάδος/Τμήμα Απαιτούμενο πεδίο' class='ms-RadioText'><option value='' selected='selected'></option><option value='Κλάδος Αυτοκινήτων'>Κλάδος Αυτοκινήτων</option><option value='Λοιποί κλάδοι'>Λοιποί κλάδοι</option><option value='Εταιρική Διακυβέρνηση'>Εταιρική Διακυβέρνηση</option><option value='Οικονομική Διεύθυνση'>Οικονομική Διεύθυνση</option><option value='Οικονομική Διαχείριση'>Οικονομική Διαχείριση</option><option value='Τεχνική Διεύθυνση'>Τεχνική Διεύθυνση</option><option value='Τμήμα Ζημιών'>Τμήμα Ζημιών</option><option value='Πωλήσεις'>Πωλήσεις</option><option value='Νομικό τμήμα'>Νομικό τμήμα</option><option value='Γενική Διεύθυνση'>Γενική Διεύθυνση</option><option value='Τμήμα Πληροφορικής'>Τμήμα Πληροφορικής</option><option value='Υποκατάστημα Θεσσαλονίκης'>Υποκατάστημα Θεσσαλονίκης</option><option value='Κατάστημα Πάτρας'>Κατάστημα Πάτρας</option><option value='Κατάστημα Χαλκίδας'>Κατάστημα Χαλκίδας</option><option value='Κατάστημα Λυκόβρυσης'>Κατάστημα Λυκόβρυσης</option><option value='Κατάστημα Βόλου'>Κατάστημα Βόλου</option><option value='Κατάστημα Ιωαννίνων'>Κατάστημα Ιωαννίνων</option><option value='Κατάστημα Γαλατσίου'>Κατάστημα Γαλατσίου</option><option value='Κατάστημα Κιλκίς'>Κατάστημα Κιλκίς</option><option value='NP'>NP</option></select><br></span>
+           </td> </tr>";
+       $out .="<tr>
+           <td nowrap='true' valign='top' width='113px' ><span  id=''>
+           <nobr>Προτεραιότητα</nobr>
+           </span></td>
+           <td valign='top' width='350px' class='ms-formbody'>
+               <span dir='none'><select name='priority' id='priority' title='Προτεραιότητα' class='ms-RadioText'><option value='(1) Υψηλή'>(1) Υψηλή</option><option value='(2) Κανονική' selected='selected'>(2) Κανονική</option><option value='(3) Χαμηλή'>(3) Χαμηλή</option></select><br></span>
+           </td>
+           </tr>" ; 
+      //  $out .="<tr><td nowrap='true' valign='top' width='113px' ><span  id='_x0395__x03af__x03b4__x03bf__x03'>
+      //          <nobr>Είδος αίτησης<span class='ms-accentText' title='Αυτό το πεδίο είναι υποχρεωτικό.'> *</span></nobr>
+      //          </span></td>
+      //          <td valign='top' width='350px' class='ms-formbody'><span dir='none'>
+      //          <select name='requestType' id='RequestType' title='Είδος αίτησης Απαιτούμενο πεδίο' class='ms-RadioText'>
+      //              <option value='' selected='selected'></option>
+      //              <option value='1.Προσθήκη δικαιωμάτων χρήστη.'>1.Προσθήκη δικαιωμάτων χρήστη.</option>
+      //              <option value='2.Αφαίρεση δικαιωμάτων χρήστη.'>2.Αφαίρεση δικαιωμάτων χρήστη.</option>
+      //              <option value='3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.'>3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.</option>
+      //              <option value='4.Διαγραφή χρήστη/κατάργηση δικαιωμάτων.'>4.Διαγραφή χρήστη/κατάργηση δικαιωμάτων.</option>
+      //          </select><br></span>
+      //          </td></tr>";
+       $out .= "<tr ><td nowrap='true' valign='top' width='113px' ><span  id='_x039f__x03bd__x03bf__x03bc__x00'>
+               <nobr>Ονομ/νυμο χρήστη που αφορούν οι αλλαγές</nobr></span></td>
+               <td valign='top' width='350px' class='ms-formbody'>
+               <div dir='none'>
+                  <input type='text' name='UserFor' class='sp-peoplepicker-editorInput' size='50' autocomplete='off' value='' id='_EditorInput' title='Ονομ/νυμο χρήστη που αφορούν οι αλλαγές' autocorrect='off' autocapitalize='off' data-sp-peoplepickereditor='true'></div>
+               </div>
+               <span id='InitialHelpText' class=''>Εισαγωγή ονομάτων ή διευθύνσεων ηλεκτρονικού ταχυδρομείου...<br>Για νέο χρήστη , συμπληρώστε το όνομ/νυμο μόνο στην περιγραφή.</span>
+               </td>
+               </tr>";
+       $out .=" <tr id='UserRights' style='display:none;'><td nowrap='true' valign='top' width='113px' >
+               <br><nobr><h3>Δικαιώματα Εφαρμογών</h3></nobr></td>
+               <td valign='top' width='100%' class='ms-formbody'>
+               <span dir='none'>
+                   <table id='' cellpadding='2' cellspacing='1' width='100%' border='1'>
+                   <tr><td><span title='IRP-Κύρια ασφαλιστική εφαρμογή'>
+                       <input name='irp' type='hidden' value='ΟΧΙ'>
+                       <input name='irp' type='checkbox' value='ΝΑΙ'>&nbsp;<label for='irp'>IRP-Κύρια ασφαλιστική εφαρμογή</label></span></td>
+                       <td><span title='PORTAL'>
+                       <input name='portalaccess' type='hidden' value='ΟΧΙ'>
+                       <input name='portalaccess' type='checkbox' Value='Ναι'>&nbsp;<label for='portalaccess'>PORTAL</label></span></td>
+                       <td><span title='NP BANK'>
+                       <input name='NPBank' type='hidden' value='ΟΧΙ'>
+                       <input name='NPBank' type='checkbox' value='Ναι'>&nbsp;<label for='NPBank'>NP BANK</label></span></td></tr>
+                   <tr><td><span title='NP REPORTS'>
+                        <input name='NPReports' type='hidden' value='ΟΧΙ'>
+                        <input name='NPReports' type='checkbox' value='Ναι'>&nbsp;<label for='NPReports'>NP REPORTS</label></span></td>
+                       <td><span title='MS OUTLOOK'>
+                       <input name='msoutlook' type='hidden' value='ΟΧΙ'>
+                       <input name='msoutlook' type='checkbox' value='Ναι' >&nbsp;<label for='msoutlook'>MS OUTLOOK</label></span></td>
+                       <td><span title='MS OFFICE(Word,Excel,Powerpoint)'>
+                       <input name='msoffice' type='hidden' value='ΟΧΙ'>
+                       <input name='msoffice' type='checkbox' value='Ναι'>&nbsp;<label for='msoffice'>MS OFFICE(Word,Excel,Powerpoint)</label></span></td></tr>
+                       <tr><td><span title='FAX SERVER'>
+                       <input name='faxserver' type='hidden' value='ΟΧΙ'>
+                       <input name='faxserver' type='checkbox' value='Ναι'>&nbsp;<label for='faxserver'>FAX SERVER</label></span></td>
+                       <td><span title='INTERNET'>
+                       <input name='internetCheck' type='hidden' value='ΟΧΙ'>
+                       <input name='internetCheck' type='checkbox' value='Ναι'>&nbsp;<label for='internetCheck'>INTERNET</label></span></td>
+                       <td><span title='MIS(ΠΑΛΑΙΟ)'>
+                       <input name='MISOldCheck' type='hidden' value='ΟΧΙ'>
+                       <input name='MISOldCheck' type='checkbox' value='Ναι'>&nbsp;<label for='MISOldCheck'>MIS(ΠΑΛΑΙΟ)</label></span></td></tr>
+                       <tr><td><span title='MIS(ΝΕΟ)'>
+                       <input name='MISNewCheck' type='hidden' value='ΟΧΙ'>
+                       <input name='MISNewCheck' type='checkbox' value='Ναι'>&nbsp;<label for='MISNewCheck'>MIS(ΝΕΟ)</label></span></td>
+                       <td><span title='PAPYRUS'>
+                       <input name='PapyrusCheck' type='hidden' value='ΟΧΙ'>
+                       <input name='PapyrusCheck' type='checkbox' value='Ναι'>&nbsp;<label for='PapyrusCheck'>PAPYRUS</label></span></td>
+                       <td><span title='TEST IRP'>
+                       <input name='testirp' type='hidden' value='ΟΧΙ'>
+                       <input name='testirp' type='checkbox' value='Ναι'>&nbsp;<label for='testirp'>TEST IRP</label></span></td></tr>
+                       <tr><td><span title='TEST PORTAL'>
+   
+                       <input name='testportalcheck' type='hidden' value='ΟΧΙ'>
+                       <input name='testportalcheck' type='checkbox' value='Ναι'>&nbsp;<label for='testportalcheck'>TEST PORTAL</label></span></td>
+                       <td><span title='Πρόγραμμα μισθοδοσίας'>
+                       
+                       <input name='PayrollCheck' type='hidden' value='ΟΧΙ'>
+                       <input name='PayrollCheck' type='checkbox' value='Ναι'>&nbsp;<label for='PayrollCheck'>Πρόγραμμα μισθοδοσίας</label></span></td>
+                       <td><span title='Solvency II - Systemic'>
+   
+                       <input name='SolvencyCheck' type='hidden' value='ΟΧΙ'>
+                       <input name='SolvencyCheck' type='checkbox' value='Ναι'>&nbsp;<label for='SolvencyCheck'>Solvency II - Systemic</label></span></td></tr>
+                       <tr><td><span title='ΥΣΑΕ'>
+   
+                       <input name='YSAECheck' type='hidden' value='ΟΧΙ'>
+                       <input name='YSAECheck' type='checkbox' value='Ναι'>&nbsp;<label for='YSAECheck'>ΥΣΑΕ</label></span></td>
+                       <td><span title='ΓΔΑ'>
+                       
+                       <input name='GDACheck' type='hidden' value='ΟΧΙ'>
+                       <input name='GDACheck' type='checkbox' value='Ναι'>&nbsp;<label for='GDACheck'>ΓΔΑ</label></span></td>
+                       <td><span title='HIC'>
+                       
+                       <input name='HICCheck' type='hidden' value='ΟΧΙ'>
+                       <input name='HICCheck' type='checkbox' value='Ναι'>&nbsp;<label for='HICCheck'>HIC</label></span></td></tr>
+                   <tr><td><span title='Επενδυτικό πρόγραμμα'>
+                   
+                   <input name='investProgrammCheck' type='hidden' value='ΟΧΙ'>
+                      <input name='investProgrammCheck' type='checkbox' value='Ναι'>&nbsp;<label for='investProgrammCheck'>Επενδυτικό πρόγραμμα</label></span></td>
+                       <td><span title='Κοινόχρηστα αρχεία τμήματος'>
+                       
+                       <input name='CommonDeptFiles' type='hidden' value='ΟΧΙ'>
+                       <input name='CommonDeptFiles' type='checkbox' value='Ναι'>&nbsp;<label for='CommonDeptFiles'>Κοινόχρηστα αρχεία τμήματος</label></span></td>
+                       <td><span title='AGENTS'>
+                       
+                       <input name='agentsCheck' type='hidden' value='ΟΧΙ'>
+                       <input name='agentsCheck' type='checkbox' value='Ναι'>&nbsp;<label for='agentsCheck'>AGENTS</label></span></td></tr>
+                   <tr><td colspan=3><span title='Καθορίστε τη δική σας τιμή:'>
+                   
+                   <label for='CustomAccessText'>Καθορίστε τη δική σας τιμή:</label></span>
+                       &nbsp;&nbsp;&nbsp;
+                       <input type='text' maxlength='255' name='CustomAccessText' tabindex='-1' value='' title='Δικαιώματα Εφαρμογών: Καθορίστε τη δική σας τιμή:'></td></tr>
+                       <tr><td colspan=2></td></tr>
+                      
+             </table>
+             
+             
+             </span>
+       <span class='ms-metadata'>Την πλήρη ευθύνη και έλεγχο έχει ο Προϊστάμενος/Διευθυντής του τμήματος γνωρίζοντας <br>&nbsp;τους κινδύνους που μπορεί να προκύψουν και να επηρεάσουν την λειτουργία της εταιρείας <br>&nbsp;π.χ. ιούς,μη θεμιτή μεταφορά δεδομένων.</span>   
+    </td>
+    </tr>";  
+    $out.= "<tr id='InternetPages'  style='display:none;'><td nowrap='true' valign='top' width='50%' ><span  id='_x03a3__x03b5__x03bb__x03af__x03'>
+    <br><nobr><h3>Σελίδες πρόσβασης στο internet</h3></nobr>
+    </span></td>
+    <td valign='top' width='50%' class='ms-formbody'>
+    <span dir='none'><span dir='ltr'><textarea rows='10' cols='120' name='InternetPages' title='Πρόγραμμα επεξεργασίας εμπλουτισμένου κειμένου Σελίδες πρόσβασης στο internet' class='ms-long'></textarea></span><br><span class='ms-formdescription'><a href=''>Κάντε κλικ για να λάβετε βοήθεια σχετικά με την προσθήκη βασικής μορφοποίησης HTML.</a></span><br></span>
+    </td>
+    </tr>";   
+    $out .= "<tr id='HWRights' style='display:none;' >
+    <td nowrap='true' valign='center' width='113px' ><span  id='_x0394__x03b9__x03ba__x03b1__x03'><br>
+    <nobr><h3>Δικαιώματα πρόσβασης σε hardware</h3></nobr></span></td>
+    <td valign='top' width='350px' class='ms-formbody'>
+       <span dir='none'>
+       <table cellpadding='0' cellspacing='1'>
+          <tbody>
+          <tr><td><span class='ms-RadioText' title='CD/DVD'>
+                    <input name='cddvd' type='hidden' value='ΟΧΙ'>
+                    <input name='cddvd' type='checkbox' value='Ναι'><label for='_x0394__x03b9__x03ba__x03b1__x03_1f98a32f-ff64-441c-b22a-24567571e2be_MultiChoiceOption_0'>CD/DVD</label>
+                   </span></td>
+                   <td><span class='ms-RadioText' title='USB DISK'>
+                     <input name='usbdisk' type='hidden' value='ΟΧΙ'>
+                     <input name='usbdisk' type='checkbox' value='Ναι'><label for='_x0394__x03b9__x03ba__x03b1__x03_1f98a32f-ff64-441c-b22a-24567571e2be_MultiChoiceOption_1'>USB DISK</label>
+                   </span></td>
+                   <td><span class='ms-RadioText' title='Σύνδεση φωτογραφικής μηχανής'>
+                   <input name='camera' type='hidden' value='ΟΧΙ'>
+                   <input name='camera' type='checkbox' value='Ναι'><label for='_x0394__x03b9__x03ba__x03b1__x03_1f98a32f-ff64-441c-b22a-24567571e2be_MultiChoiceOption_2'>Σύνδεση φωτογραφικής μηχανής</label>
+                   </span></td></tr>
+                   <tr><td colspan=3><span class='ms-RadioText' title='Καθορίστε τη δική σας τιμή:'>
+                     <label for='_x0394__x03b9__x03ba__x03b1__x03_1f98a32f-ff64-441c-b22a-24567571e2beFillInRadio'>Καθορίστε τη δική σας τιμή:</label>
+                     </span> &nbsp;&nbsp;&nbsp;<input type='text' maxlength='255' name='customhw' tabindex='-1' value='' title='Δικαιώματα πρόσβασης σε hardware: Καθορίστε τη δική σας τιμή:'>
+                     </td></tr>
+                     </tbody>
+                     </table>
+                     </span>
+       <span class='ms-metadata'>Την πλήρη ευθύνη και έλεγχο έχει ο Προϊστάμενος/Διευθυντής του τμήματος γνωρίζοντας <br>&nbsp;τους κινδύνους που μπορεί να προκύψουν και να επηρεάσουν την λειτουργία της εταιρείας <br>&nbsp;π.χ. ιούς,μη θεμιτή μεταφορά δεδομένων.</span>
+    </td>
+    </tr>
+    <tr><td colspan=2 align='center' ><br>
+    <input type='submit' name='submitbtn' class='submit' value='Υποβολή'>
+     </td><tr>
+    </table>
+    </div>
+    </form>";
 
-      $out = '<tr>';
-      $out .= '<th>' . __('My label', 'myexampleplugin') . '</th>';
+      //**************************************************************************************** */
+
+      $out .= '<tr>';
+      $out .= '<th>' . __('My fffffflabel', 'myexampleplugin') . '</th>';
 
       echo "<tr class='tab_bg_1'>";
       echo "<td>" . __('ID') . "</td>";
