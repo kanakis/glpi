@@ -679,14 +679,30 @@ function plugin_example_Status($param) {
 function plugin_example_display_central() {
    $config = new Config();
    global $CFG_GLPI;
-   echo "<script>console.log('got in plugin_example_display_central()');</script>";
+   echo "<script>console.log('got in plugin_example_display_central()');
+      function showForm()
+      {
+      console.log('showForm'); 
+      var getFormVisValue =  document.getElementById('MainFormTable').style.display;
+      console.log(getFormVisValue);  
+      if(getFormVisValue=='none')
+      {
+         getFormVisValue ='block';
+
+      } else {getFormVisValue ='none';}
+      console.log(document.getElementById('MainFormTable').style.display);
+      document.getElementById('MainFormTable').style.display = getFormVisValue ;
+      console.log(document.getElementById('MainFormTable').style.display);
+      }
+      
+   </script>";
    //$this->initForm($ID, $options);
    //$this->showFormHeader($options);
 
    echo "<tr><th colspan='2'>";
    echo "<div style='text-align:center; font-size:1em'>";
    echo __("Plugin example displays on central page", "example");
-   echo " <div style='text-align:center;color:#DB6116'> Υποβολή αιτήματος - εργασίας  </div>" ; 
+   echo " <div style='text-align:center;color:#DB6116'><a href='' onclick='showForm()' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' onhover=''> Υποβολή αιτήματος - εργασίας </spa> </div>" ; 
    
    //main form 
    $out ="</td></tr><tr><td>
@@ -697,6 +713,7 @@ function plugin_example_display_central() {
        var getSelectValue = document.getElementById('RequestType').value;
        if(getSelectValue !==''){
          if((getSelectValue == '1.Προσθήκη δικαιωμάτων χρήστη.')||
+            (getSelectValue == '2.Αφαίρεση δικαιωμάτων χρήστη.')||
             (getSelectValue == '3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.')){
             //document.getElementById('UserName').style.display='block';
             document.getElementById('UserRights').style.display='table-row';
@@ -708,8 +725,8 @@ function plugin_example_display_central() {
                document.getElementById('UserRights').style.display='none';
                document.getElementById('InternetPages').style.display='none';
                document.getElementById('HWRights').style.display='none';
-            }
-         if((getSelectValue == '2.Αφαίρεση δικαιωμάτων χρήστη.')||
+            }   
+         if(
             (getSelectValue == '4.Διαγραφή χρήστη/κατάργηση δικαιωμάτων.')){
                document.getElementById('UserName').style.display='table-row';
                document.getElementById('PassRequestTypeVar').value  = '2';
@@ -734,7 +751,8 @@ function plugin_example_display_central() {
     <input type='hidden' name='_glpi_csrf_token' value='".Session::getNewCSRFToken()."'>
     <input type='hidden' name='PassRequestTypeVar' value=''>
     ";
-    $out .="<table style = 'text-align:left;' border=1>";
+    $out .="<div id='MainFormTable' style='display:block;'>";
+    $out .="<table style = 'text-align:left;' border=1 >";
     $out .="<tr><td nowrap='true' valign='top' width='113px' ><span  id='_x0395__x03af__x03b4__x03bf__x03'>
     <nobr>Είδος αίτησης<span class='ms-accentText' title='Αυτό το πεδίο είναι υποχρεωτικό.'> *</span></nobr>
     </span></td><td>
@@ -803,7 +821,7 @@ function plugin_example_display_central() {
                 <tr><td><span title='NP REPORTS'>
                      <input name='NPReports' type='hidden' value='ΟΧΙ'>
                      <input name='NPReports' type='checkbox' value='Ναι'>&nbsp;<label for='NPReports'>NP REPORTS</label></span></td>
-                    <td><span title='MS OUTLOOK'>
+                    <!--<td><span title='MS OUTLOOK'>
                     <input name='msoutlook' type='hidden' value='ΟΧΙ'>
                     <input name='msoutlook' type='checkbox' value='Ναι' >&nbsp;<label for='msoutlook'>MS OUTLOOK</label></span></td>
                     <td><span title='MS OFFICE(Word,Excel,Powerpoint)'>
@@ -811,7 +829,7 @@ function plugin_example_display_central() {
                     <input name='msoffice' type='checkbox' value='Ναι'>&nbsp;<label for='msoffice'>MS OFFICE(Word,Excel,Powerpoint)</label></span></td></tr>
                     <tr><td><span title='FAX SERVER'>
                     <input name='faxserver' type='hidden' value='ΟΧΙ'>
-                    <input name='faxserver' type='checkbox' value='Ναι'>&nbsp;<label for='faxserver'>FAX SERVER</label></span></td>
+                    <input name='faxserver' type='checkbox' value='Ναι'>&nbsp;<label for='faxserver'>FAX SERVER</label></span></td>-->
                     <td><span title='INTERNET'>
                     <input name='internetCheck' type='hidden' value='ΟΧΙ'>
                     <input name='internetCheck' type='checkbox' value='Ναι'>&nbsp;<label for='internetCheck'>INTERNET</label></span></td>
@@ -867,8 +885,6 @@ function plugin_example_display_central() {
                 
                 <label for='CustomAccessText'>Καθορίστε τη δική σας τιμή:</label></span>
                     &nbsp;&nbsp;&nbsp;
-                    
-                    
                     <input type='text' maxlength='255' name='CustomAccessText' tabindex='-1' value='' title='Δικαιώματα Εφαρμογών: Καθορίστε τη δική σας τιμή:'></td></tr>
                     <tr><td colspan=2></td></tr>
                    
@@ -919,13 +935,14 @@ function plugin_example_display_central() {
  <input type='submit' name='submitbtn' class='submit' value='Υποβολή'>
   </td><tr>
  </table>
+ </div>
  </form>";
  
 echo $out ; 
       //alx    
       echo "<tr class='tab_bg_1'>";
       echo "<td>" . __('ID') . "</td>";
-      echo "<td>ertertert ";
+      echo "<td> ";
       //echo $ID;
       echo "</td>";
 
