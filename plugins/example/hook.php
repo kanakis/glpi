@@ -701,7 +701,7 @@ function plugin_example_display_central() {
 
    echo "<tr><th colspan='2'>";
    echo "<div style='text-align:center; font-size:1em'>";
-   echo __("Plugin example displays on central page", "example");
+   //echo __("Plugin example displays on central page", "example");
    echo " <div style='text-align:center;color:#DB6116'><a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' onhover=''> Υποβολή αιτήματος - εργασίας </spa> </div>" ; 
    
    //main form 

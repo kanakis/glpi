@@ -49,41 +49,47 @@ include ('../../../inc/includes.php');
 //echo('Get ');
 //print_r($_GET); 
 //echo('Got In 2!');
+$typeOfSubmition = $_POST['requestType']; 
+
 $contentToAdd =  $_POST['RequestDescription']."<br>";
-$contentToAdd .= "Κλάδος/Τμήμα:".$_POST['klados']."<br>";
-$contentToAdd .= "Προτεραιότητα:".$_POST['priority']."<br>"  ;
-$contentToAdd .= "Είδος αίτησης:".$_POST['requestType']."<br>"; 
-$contentToAdd .= "Ονομ/νυμο χρήστη που αφορούν οι αλλαγές".$_POST['UserFor']."<br>";
-$contentToAdd .= "IRP-Κύρια ασφαλιστική εφαρμογή: ".$_POST['irp']."<br>" ; 
-$contentToAdd .= "PORTAL: ".$_POST['portalaccess']."<br>" ; 
-$contentToAdd .= "NP BANK: ".$_POST['NPBank']."<br>" ; 
-$contentToAdd .= "NP REPORTS: ".$_POST['NPReports']."<br>" ; 
-$contentToAdd .= "MS OUTLOOK: ".$_POST['msoutlook']."<br>" ; 
-$contentToAdd .= "MS OFFICE: ".$_POST['msoffice']."<br>" ; 
-$contentToAdd .= "FAX SERVER: ".$_POST['faxserver']."<br>" ; 
-$contentToAdd .= "INTERNET: ".$_POST['internetCheck']."<br>" ; 
-$contentToAdd .= "MIS(ΠΑΛΑΙΟ): ".$_POST['MISOldCheck']."<br>" ; 
-$contentToAdd .= "MIS(ΝΕΟ): ".$_POST['MISNewCheck']."<br>" ; 
-$contentToAdd .= "PAPYRUS: ".$_POST['PapyrusCheck']."<br>" ; 
-$contentToAdd .= "TEST IRP: ".$_POST['testirp']."<br>" ; 
-$contentToAdd .= "TEST PORTAL: ".$_POST['testportalcheck']."<br>" ; 
-
-$contentToAdd .= "Πρόγραμμα μισθοδοσίας: ".$_POST['PayrollCheck']."<br>" ; 
-$contentToAdd .= "Solvency II - Systemic: ".$_POST['SolvencyCheck']."<br>" ; 
-$contentToAdd .= "ΥΣΑΕ: ".$_POST['YSAECheck']."<br>" ; 
-$contentToAdd .= "ΓΔΑ: ".$_POST['GDACheck']."<br>" ; 
-$contentToAdd .= " HIC: ".$_POST['HICCheck']."<br>" ; 
-$contentToAdd .= "Επενδυτικό πρόγραμμα: ".$_POST['investProgrammCheck']."<br>" ; 
-$contentToAdd .= "Κοινόχρηστα αρχεία τμήματος: ".$_POST['CommonDeptFiles']."<br>" ; 
-$contentToAdd .= "AGENTS: ".$_POST['agentsCheck']."<br>" ; 
-
-$contentToAdd .= "Custom SW: ".$_POST['CustomAccessText']."<br>" ; 
-$contentToAdd .= "Σελίδες Internet: ".$_POST['InternetPages']."<br>" ; 
-$contentToAdd .= "CD\DVD: ".$_POST['cddvd']."<br>" ; 
-
-$contentToAdd .= "Usb Disk: ".$_POST['usbdisk']."<br>" ; 
-$contentToAdd .= "Camera: ".$_POST['camera']."<br>" ; 
-$contentToAdd .= "Custom HW: ".$_POST['customhw']."<br>" ; 
+$contentToAdd .= "Κλάδος/Τμήμα :".$_POST['klados']."<br>";
+$contentToAdd .= "Προτεραιότητα :".$_POST['priority']."<br>"  ;
+$contentToAdd .= "Είδος αίτησης :".$_POST['requestType']."<br>"; 
+$contentToAdd .= "Ονομ/νυμο χρήστη που αφορούν οι αλλαγές :".$_POST['UserFor']."<br>";
+if(($typeOfSubmition=='1.Προσθήκη δικαιωμάτων χρήστη.')||
+   ($typeOfSubmition=='2.Αφαίρεση δικαιωμάτων χρήστη.')||
+   ($typeOfSubmition=='3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.'))
+   {
+      if($_POST['irp']=='Ναι') {$contentToAdd .= "IRP-Κύρια ασφαλιστική εφαρμογή : ".$_POST['irp']."<br>" ; }
+      if($_POST['portalaccess']=='Ναι') {$contentToAdd .= "PORTAL : ".$_POST['portalaccess']."<br>" ; } 
+      if($_POST['NPBank']=='Ναι') {$contentToAdd .= "NP BANK : ".$_POST['NPBank']."<br>" ; } 
+      if($_POST['NPReports']=='Ναι') {$contentToAdd .= "NP REPORTS : ".$_POST['NPReports']."<br>" ; } 
+      if($_POST['msoutlook']=='Ναι') {$contentToAdd .= "MS OUTLOOK : ".$_POST['msoutlook']."<br>" ; } 
+      if($_POST['msoffice']=='Ναι') {$contentToAdd .= "MS OFFICE : ".$_POST['msoffice']."<br>" ; } 
+      if($_POST['faxserver']=='Ναι') {$contentToAdd .= "FAX SERVER : ".$_POST['faxserver']."<br>" ; } 
+      if($_POST['internetCheck']=='Ναι') {$contentToAdd .= "INTERNET : ".$_POST['internetCheck']."<br>" ; } 
+      if($_POST['MISOldCheck']=='Ναι') { $contentToAdd .= "MIS(ΠΑΛΑΙΟ) : ".$_POST['MISOldCheck']."<br>" ; } 
+      if($_POST['MISNewCheck']=='Ναι') {$contentToAdd .= "MIS(ΝΕΟ) : ".$_POST['MISNewCheck']."<br>" ; } 
+      if($_POST['PapyrusCheck']=='Ναι') {$contentToAdd .= "PAPYRUS : ".$_POST['PapyrusCheck']."<br>" ; } 
+      if($_POST['testirp']=='Ναι') {$contentToAdd .= "TEST IRP : ".$_POST['testirp']."<br>" ; } 
+      if($_POST['testportalcheck']=='Ναι') {$contentToAdd .= "TEST PORTAL : ".$_POST['testportalcheck']."<br>" ; } 
+      if($_POST['PayrollCheck']=='Ναι') {$contentToAdd .= "Πρόγραμμα μισθοδοσίας : ".$_POST['PayrollCheck']."<br>" ; } 
+      if($_POST['SolvencyCheck']=='Ναι') {$contentToAdd .= "Solvency II - Systemic : ".$_POST['SolvencyCheck']."<br>" ; } 
+      if($_POST['YSAECheck']=='Ναι') {$contentToAdd .= "ΥΣΑΕ : ".$_POST['YSAECheck']."<br>" ; } 
+      if($_POST['GDACheck']=='Ναι') {$contentToAdd .= "ΓΔΑ : ".$_POST['GDACheck']."<br>" ; } 
+      if($_POST['HICCheck']=='Ναι') {$contentToAdd .= " HIC : ".$_POST['HICCheck']."<br>" ; } 
+      if($_POST['investProgrammCheck']=='Ναι') {$contentToAdd .= "Επενδυτικό πρόγραμμα : ".$_POST['investProgrammCheck']."<br>" ; } 
+      if($_POST['CommonDeptFiles']=='Ναι') {$contentToAdd .= "Κοινόχρηστα αρχεία τμήματος : ".$_POST['CommonDeptFiles']."<br>" ; } 
+      if($_POST['agentsCheck']=='Ναι') {$contentToAdd .= "AGENTS : ".$_POST['agentsCheck']."<br>" ; } 
+      if($_POST['CustomAccessText']=='Ναι') {$contentToAdd .= "Custom SW : ".$_POST['CustomAccessText']."<br>" ; } 
+      if($_POST['InternetPages']=='Ναι') {$contentToAdd .= "Σελίδες Internet : ".$_POST['InternetPages']."<br>" ; } 
+      if($_POST['cddvd']=='Ναι') {$contentToAdd .= "CD\DVD : ".$_POST['cddvd']."<br>" ; } 
+      if($_POST['usbdisk']=='Ναι') {$contentToAdd .= "Usb Disk : ".$_POST['usbdisk']."<br>" ; } 
+      if($_POST['camera']=='Ναι') {$contentToAdd .= "Camera : ".$_POST['camera']."<br>" ; } 
+      if($_POST['customhw']=='Ναι') {$contentToAdd .= "Custom HW : ".$_POST['customhw']."<br>" ; } 
+    }
+    
+ 
 //echo($contentToAdd) ; 
 $ticket = new Ticket();
 $ticket->add([
