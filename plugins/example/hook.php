@@ -703,7 +703,7 @@ function plugin_example_display_central() {
             document.getElementById('InternetPages').style.display='table-row';
             document.getElementById('HWRights').style.display='table-row';
             document.getElementById('PassRequestTypeVar').value  = '1' ;
-            }else{
+            }else{ 
             // document.getElementById('UserName').style.display='block';
                document.getElementById('UserRights').style.display='none';
                document.getElementById('InternetPages').style.display='none';
