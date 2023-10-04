@@ -821,7 +821,7 @@ function plugin_example_display_central() {
                 <tr><td><span title='NP REPORTS'>
                      <input name='NPReports' type='hidden' value='ΟΧΙ'>
                      <input name='NPReports' type='checkbox' value='Ναι'>&nbsp;<label for='NPReports'>NP REPORTS</label></span></td>
-                    <!--<td><span title='MS OUTLOOK'>
+                    <td><span title='MS OUTLOOK'>
                     <input name='msoutlook' type='hidden' value='ΟΧΙ'>
                     <input name='msoutlook' type='checkbox' value='Ναι' >&nbsp;<label for='msoutlook'>MS OUTLOOK</label></span></td>
                     <td><span title='MS OFFICE(Word,Excel,Powerpoint)'>
@@ -829,7 +829,7 @@ function plugin_example_display_central() {
                     <input name='msoffice' type='checkbox' value='Ναι'>&nbsp;<label for='msoffice'>MS OFFICE(Word,Excel,Powerpoint)</label></span></td></tr>
                     <tr><td><span title='FAX SERVER'>
                     <input name='faxserver' type='hidden' value='ΟΧΙ'>
-                    <input name='faxserver' type='checkbox' value='Ναι'>&nbsp;<label for='faxserver'>FAX SERVER</label></span></td>-->
+                    <input name='faxserver' type='checkbox' value='Ναι'>&nbsp;<label for='faxserver'>FAX SERVER</label></span></td>
                     <td><span title='INTERNET'>
                     <input name='internetCheck' type='hidden' value='ΟΧΙ'>
                     <input name='internetCheck' type='checkbox' value='Ναι'>&nbsp;<label for='internetCheck'>INTERNET</label></span></td>
