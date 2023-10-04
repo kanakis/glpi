@@ -129,3 +129,4 @@ echo('Got In! 8');
 Html::footer();
  
 echo('Got In! 10'); 
+include (GLPI_ROOT . "/front/dropdown.common.form.php");
