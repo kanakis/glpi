@@ -88,7 +88,7 @@ if(($typeOfSubmition=='1.Προσθήκη δικαιωμάτων χρήστη.')
       if($_POST['camera']=='Ναι') {$contentToAdd .= "Camera : ".$_POST['camera']."<br>" ; } 
       if($_POST['customhw']=='Ναι') {$contentToAdd .= "Custom HW : ".$_POST['customhw']."<br>" ; } 
     }
-    
+     
  
 //echo($contentToAdd) ; 
 $ticket = new Ticket();
@@ -106,7 +106,7 @@ if ($_SESSION["glpiactiveprofile"]["interface"] == "central") {
   // echo('Got In! 4'); 
    Html::helpHeader("TITRE", $_SERVER['PHP_SELF']);
 }
-echo "before Post IF!"; 
+//echo "before Post IF!"; 
 //echo var_dump($_POST); 
 // if ($_POST && isset($_POST['addnpticket']) && isset($_POST['id']))
 // {
@@ -134,5 +134,5 @@ $newexample->centralrequestform($_POST) ;
 echo('Got In! 8'); 
 Html::footer();
  
-echo('Got In! 10'); 
+//echo('Got In! 10'); 
 include (GLPI_ROOT . "/front/dropdown.common.form.php");
