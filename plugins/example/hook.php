@@ -679,30 +679,30 @@ function plugin_example_Status($param) {
 function plugin_example_display_central() {
    $config = new Config();
    global $CFG_GLPI;
-   echo "<script>console.log('got in plugin_example_display_central()');
-      function showForm()
-      {
-      console.log('showForm'); 
-      var getFormVisValue =  document.getElementById('MainFormTable').style.display;
-      console.log(getFormVisValue);  
-      if(getFormVisValue=='none')
-      {
-         getFormVisValue ='block';
+   // echo "<script>console.log('got in plugin_example_display_central()');
+   //    function showForm()
+   //    {
+   //    console.log('showForm'); 
+   //    var getFormVisValue =  document.getElementById('MainFormTable').style.display;
+   //    console.log(getFormVisValue);  
+   //    if(getFormVisValue=='none')
+   //    {
+   //       getFormVisValue ='block';
 
-      } else {getFormVisValue ='none';}
-      console.log(document.getElementById('MainFormTable').style.display);
-      document.getElementById('MainFormTable').style.display = getFormVisValue ;
-      console.log(document.getElementById('MainFormTable').style.display);
-      }
+   //    } else {getFormVisValue ='none';}
+   //    console.log(document.getElementById('MainFormTable').style.display);
+   //    document.getElementById('MainFormTable').style.display = getFormVisValue ;
+   //    console.log(document.getElementById('MainFormTable').style.display);
+   //    }
       
-   </script>";
+   // </script>";
    //$this->initForm($ID, $options);
    //$this->showFormHeader($options);
 
    echo "<tr><th colspan='2'>";
    echo "<div style='text-align:center; font-size:1em'>";
    //echo __("Plugin example displays on central page", "example");
-   echo " <div style='text-align:center;color:#DB6116'><a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' onhover=''> Υποβολή αιτήματος - εργασίας </spa> </div>" ; 
+   //echo " <div style='text-align:left;color:#DB6116'><a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' onhover=''><button> Υποβολή αιτήματος - εργασίας </button></spa> </div>" ; 
    
    //main form 
    
@@ -710,7 +710,9 @@ function plugin_example_display_central() {
 //echo $out ; 
       //alx    
       echo "<tr class='tab_bg_1'>";
-      echo "<td>" . __('ID') . "</td>";
+      echo "<td><div style='text-align:left;color:#DB6116'>&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' onhover=''><button style='color:#DB6116; font-size:11pt'> Υποβολή αιτήματος - εργασίας </button></spa> </div></td>";
       echo "<td> ";
       //echo $ID;
       echo "</td>";
@@ -718,8 +720,8 @@ function plugin_example_display_central() {
       //$this->showFormButtons($options);
 // end main form 
 
-   $config->showFormExample() ;
-   echo "</div>";
+   //$config->showFormExample() ;
+   //echo "</div>";
    echo "</th></tr>";
 }
 
