@@ -1,4 +1,17 @@
 <?php 
+
+use Glpi\Plugin\Hooks;
+use GlpiPlugin\Example\Computer;
+use GlpiPlugin\Example\Config;
+use GlpiPlugin\Example\Dropdown;
+use GlpiPlugin\Example\DeviceCamera;
+use GlpiPlugin\Example\Example;
+use GlpiPlugin\Example\Filters\ComputerModelFilter;
+use GlpiPlugin\Example\ItemForm;
+use GlpiPlugin\Example\Centralform ; 
+use GlpiPlugin\Example\RuleTestCollection;
+use GlpiPlugin\Example\Showtabitem;
+
 define('NPFRM_VERSION', '0.1.1');
 
 /**

@@ -38,6 +38,8 @@ use  Glpi\Event ;
 use GlpiPlugin\Example\Centralform;
 use glpi\Debug ;
 use DbUtils ; 
+use CommonITILObject ; 
+
 ini_set( "display_errors",1) ;
 error_reporting(E_ALL);
 
@@ -50,6 +52,12 @@ include ('../../../inc/includes.php');
 //print_r($_GET); 
 //echo('Got In 2!');
 $typeOfSubmition = $_POST['requestType']; 
+$ITILCategory_ID = 0;
+// Τυπος κατηγορίας ITIL Αιτήματος !!!!! 
+if($_POST['requestType']=='1.Προσθήκη δικαιωμάτων χρήστη.'){ $ITILCategory_ID = 11 ;}
+if($_POST['requestType']=='3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.'){ $ITILCategory_ID = 10 ;}
+if($_POST['requestType']=='2.Αφαίρεση δικαιωμάτων χρήστη.'){ $ITILCategory_ID = 57;} 
+if($_POST['requestType']=='4.Διαγραφή χρήστη/κατάργηση δικαιωμάτων.'){ $ITILCategory_ID = 56;}  //Διαγραφή χρήστη 
 
 $contentToAdd =  $_POST['RequestDescription']."<br>";
 $contentToAdd .= "Κλάδος/Τμήμα :".$_POST['klados']."<br>";
@@ -90,14 +98,36 @@ if(($typeOfSubmition=='1.Προσθήκη δικαιωμάτων χρήστη.')
     }
      
  
-//echo($contentToAdd) ; 
+
+ini_set( "display_errors",1) ;
+error_reporting(E_ALL); 
 $ticket = new Ticket();
-$ticket->add([
-  'name' => $_POST['TitleTxt'],
-  'description' => $_POST['RequestDescription'] ,
-  'content' => $contentToAdd,
-  'Assigned' => 'a.charonitakis@np-asfalistiki.gr'
-]);
+$newTicketID = $ticket->add([
+               '_users_id_requester' => Session::getLoginUserID(),
+               'users_id_recipient' => Session::getLoginUserID(),
+               //'_groups_id_assign' => $_POST['GroupAssignID'], 
+               'name' => $_POST['TitleTxt'],
+               'description' => $_POST['RequestDescription'] ,
+               'content' => $contentToAdd,
+               'status' => CommonITILObject::INCOMING ; 
+               'Assigned' => 'a.charonitakis@np-asfalistiki.gr', 
+               'itilcategories_id' => $ITILCategory_ID
+            ]);
+Log::history($newTicketID, 'Ticket', $contentToAdd, 'Ticket');            
+//$ticket->
+//$newTicketID = $ticket->getTicketId() ; 
+
+//$ticket->add($data); 
+//print_r($data); 
+ini_set( "display_errors",1) ;
+error_reporting(E_ALL); 
+echo 'Ticket ID ='.$newTicketID ; 
+// if($newTicketID!==null)
+// {
+//    return self::methodGetTicket(array('ticket' => $newID), $protocol);
+
+// }
+// return self::Error($protocol, WEBSERVICES_ERROR_FAILED, '', self::getDisplayError());   
 
 if ($_SESSION["glpiactiveprofile"]["interface"] == "central") {
    //echo('Got In 3'); 

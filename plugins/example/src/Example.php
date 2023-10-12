@@ -167,6 +167,7 @@ class Example extends CommonDBTM {
        <Input type='hidden' name='item' value='32'>
        <input type='hidden' name='_glpi_csrf_token' value='".Session::getNewCSRFToken()."'>
        <input type='hidden' name='PassRequestTypeVar' value=''>
+       <input type='hidden' name='GroupAssignID' value='11'>       
        ";
        $out .="<div id='MainFormTable' style='display:block;'>";
        $out .="<table style = 'text-align:left;' border=1 >";
@@ -420,7 +421,20 @@ class Example extends CommonDBTM {
 
       return $tab;
    }
+   public static function showMiniDashboard(): void {
+      Plugin::doHook(Hooks::DISPLAY_CENTRAL);
 
+      if (PluginExampleEntityconfig::getUsedConfig('is_dashboard_visible', Session::getActiveEntity()) == PluginFormcreatorEntityconfig::CONFIG_DASHBOARD_VISIBLE) {
+         if (version_compare(GLPI_VERSION, '10.0.3') > 0) {
+            $dashboard = new Glpi\Dashboard\Grid('plugin_formcreator_issue_counters', 33, 2, 'mini_core');
+         } else {
+            $dashboard = new Glpi\Dashboard\Grid('plugin_formcreator_issue_counters', 33, 0, 'mini_core');
+         }
+         echo "<div class='formcreator_dashboard_container'>";
+         $dashboard->show(true);
+         echo "</div>";
+      }
+   }
 
    /**
     * Give localized information about 1 task

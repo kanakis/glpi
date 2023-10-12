@@ -40,7 +40,7 @@ use GlpiPlugin\Example\Centralform ;
 use GlpiPlugin\Example\RuleTestCollection;
 use GlpiPlugin\Example\Showtabitem;
 
-define('PLUGIN_EXAMPLE_VERSION', '0.0.1');
+define('PLUGIN_EXAMPLE_VERSION', '0.0.5');
 
 // Minimal GLPI version, inclusive
 define('PLUGIN_EXAMPLE_MIN_GLPI', '10.0.0');
@@ -185,7 +185,7 @@ function plugin_init_example() {
    //$PLUGIN_HOOKS['retrieve_more_field_from_ldap']['example']="plugin_retrieve_more_field_from_ldap_example";
 
    // Retrieve others datas from LDAP
-   //$PLUGIN_HOOKS['retrieve_more_data_from_ldap']['example']="plugin_retrieve_more_data_from_ldap_example";
+   $PLUGIN_HOOKS['retrieve_more_data_from_ldap']['example']="plugin_retrieve_more_data_from_ldap_example";
 
    // Reports
    //alx
@@ -210,12 +210,12 @@ function plugin_init_example() {
   // $PLUGIN_HOOKS[Hooks::assistance]['example'] ="plugin_example_display_central";
    
    // $PLUGIN_HOOKS[Hooks::DISPLAY_LOGIN]['example'] = "plugin_example_display_login";
-   $PLUGIN_HOOKS[Hooks::INFOCOM]['example'] = "plugin_example_infocom_hook";
+   // $PLUGIN_HOOKS[Hooks::INFOCOM]['example'] = "plugin_example_infocom_hook";
 
    // pre_show and post_show for tabs and items,
    // see GlpiPlugin\Example\Showtabitem class for implementation explanations
-   $PLUGIN_HOOKS[Hooks::PRE_SHOW_TAB]['example']     = [Showtabitem::class, 'pre_show_tab'];
-   $PLUGIN_HOOKS[Hooks::POST_SHOW_TAB]['example']    = [Showtabitem::class, 'post_show_tab'];
+   // $PLUGIN_HOOKS[Hooks::PRE_SHOW_TAB]['example']     = [Showtabitem::class, 'pre_show_tab'];
+   // $PLUGIN_HOOKS[Hooks::POST_SHOW_TAB]['example']    = [Showtabitem::class, 'post_show_tab'];
    //$PLUGIN_HOOKS[Hooks::PRE_SHOW_ITEM]['example']    = [Showtabitem::class, 'pre_show_item'];
    //$PLUGIN_HOOKS[Hooks::POST_SHOW_ITEM]['example']   = [Showtabitem::class, 'post_show_item'];
 
@@ -226,9 +226,9 @@ function plugin_init_example() {
    //$PLUGIN_HOOKS[Hooks::DISPLAY_CENTRAL]['example']= [ItemForm::class, 'showCentralForm'];
 
    // Add new actions to timeline
-   $PLUGIN_HOOKS[Hooks::TIMELINE_ACTIONS]['example'] = [
-      ItemForm::class, 'timelineActions'
-   ];
+   // $PLUGIN_HOOKS[Hooks::TIMELINE_ACTIONS]['example'] = [
+   //    ItemForm::class, 'timelineActions'
+   // ];
 
    // declare this plugin as an import plugin for Computer itemtype
    //$PLUGIN_HOOKS['import_item']['example'] = [Computer::class => ['Plugin']];
@@ -238,16 +238,16 @@ function plugin_init_example() {
    //    Computer::class =>  [Computer::class, 'showInfo']
    // ];
 
-   $PLUGIN_HOOKS[Hooks::FILTER_ACTORS]['example'] = "plugin_example_filter_actors";
+   // $PLUGIN_HOOKS[Hooks::FILTER_ACTORS]['example'] = "plugin_example_filter_actors";
 
    // add new cards to dashboard grid
-   $PLUGIN_HOOKS['dashboard_types']['example'] = [Example::class, 'dashboardTypes'];
-   $PLUGIN_HOOKS['dashboard_cards']['example'] = [Example::class, 'dashboardCards'];
+   // $PLUGIN_HOOKS['dashboard_types']['example'] = [Example::class, 'dashboardTypes'];
+   // $PLUGIN_HOOKS['dashboard_cards']['example'] = [Example::class, 'dashboardCards'];
 
    // Dashboard filter
-   $PLUGIN_HOOKS[Hooks::DASHBOARD_FILTERS]['example'] = [
-      ComputerModelFilter::class
-   ];
+   // $PLUGIN_HOOKS[Hooks::DASHBOARD_FILTERS]['example'] = [
+   //    ComputerModelFilter::class
+   // ];
 }
 
 // function plugin_example_permanent_hook()
