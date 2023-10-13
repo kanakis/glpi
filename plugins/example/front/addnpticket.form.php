@@ -109,7 +109,7 @@ $newTicketID = $ticket->add([
                'name' => $_POST['TitleTxt'],
                'description' => $_POST['RequestDescription'] ,
                'content' => $contentToAdd,
-               'status' => CommonITILObject::INCOMING ; 
+               'status' => CommonITILObject::INCOMING , 
                'Assigned' => 'a.charonitakis@np-asfalistiki.gr', 
                'itilcategories_id' => $ITILCategory_ID
             ]);
