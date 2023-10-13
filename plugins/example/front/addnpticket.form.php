@@ -97,7 +97,7 @@ if(($typeOfSubmition=='1.Προσθήκη δικαιωμάτων χρήστη.')
       if($_POST['customhw']=='Ναι') {$contentToAdd .= "Custom HW : ".$_POST['customhw']."<br>" ; } 
     }
      
- 
+
 
 ini_set( "display_errors",1) ;
 error_reporting(E_ALL); 
@@ -121,7 +121,9 @@ Log::history($newTicketID, 'Ticket', $contentToAdd, 'Ticket');
 //print_r($data); 
 ini_set( "display_errors",1) ;
 error_reporting(E_ALL); 
-echo 'Ticket ID ='.$newTicketID ; 
+//$newticketShow = new Centralform; 
+//$newticketShow->addticketSuccess($newTicketID) ; 
+//echo 'Ticket ID ='.$newTicketID ; 
 // if($newTicketID!==null)
 // {
 //    return self::methodGetTicket(array('ticket' => $newID), $protocol);
@@ -156,13 +158,24 @@ ini_set( "display_errors",1) ;
 error_reporting(E_ALL); 
 $newexample = new \GlpiPlugin\Example\Centralform;
 //echo "rrrrr";
-$newexample->testCC(); 
+if($newTicketID<>0){
+   $contentToShow = "Επιτυχής καταχώρηση της εργασίας $newTicketID"; 
+   $newexample->testCC($contentToShow); 
+}
+ 
 //$example->display($_POST);
 //$example->canCreate() ; 
-$newexample->centralrequestform($_POST) ; 
+//$newexample->addticketSuccess($newTicketID) ; 
+//header("/front/central.php");
+///////$newexample->centralrequestform($_POST) ; 
 //$example->display($_GET);
-echo('Got In! 8'); 
+//echo('Got In! 8'); 
 Html::footer();
  
 //echo('Got In! 10'); 
-include (GLPI_ROOT . "/front/dropdown.common.form.php");
+//include (GLPI_ROOT . "/front/dropdown.common.form.php");
+
+//header("/front/central.php");
+
+
+ 

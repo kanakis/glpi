@@ -21,13 +21,23 @@ class Centralform  extends CommonDBTM
     * @return void
     */
 
-   public function testCC() 
+   public function testCC($contentToShow) 
    {
-      //echo ('CC') ; 
+
+      echo ('<divstyle="align:center; valign:center">'.$contentToShow) ; 
+      echo('<p>'); 
+      echo ('Πατήστε <a href="/">ΕΔΩ!!!!!</a></div>') ; 
       return; 
 
    }
 
+   public function addticketSuccess($ticketID)
+   {
+      $out = "<div style='align:center; valign:center'>Έγινε εισαγωγή του αιτήματος $ticketID <p>Πατήστε <a href="/">ΕΔΩ!!!!!</a></div>"; 
+
+      echo $out ; 
+      return ;
+   }
 
    public function centralrequestform($params) {
       ini_set( "display_errors",1) ;
