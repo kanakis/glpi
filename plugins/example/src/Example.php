@@ -51,7 +51,7 @@ class Example extends CommonDBTM {
 
    // Should return the localized name of the type
    static function getTypeName($nb = 0) {
-      return 'Example Type';
+      return 'Υποβολή Αιτήματος';
    }
 
 
@@ -437,7 +437,7 @@ class Example extends CommonDBTM {
       //**************************************************************************************** */
 
       $out .= '<tr>';
-      $out .= '<th>' . __('My fffffflabel', 'myexampleplugin') . '</th>';
+      $out .= '<th>' . __('Φόρμα υποβολής Αιτήματος', 'myexampleplugin') . '</th>';
 
       echo "<tr class='tab_bg_1'>";
       echo "<td>" . __('ID') . "</td>";
