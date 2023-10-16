@@ -38,9 +38,9 @@ use GlpiPlugin\Example\Example;
 include ('../../../inc/includes.php');
 
 if ($_SESSION["glpiactiveprofile"]["interface"] == "central") {
-   Html::header("TITRE", $_SERVER['PHP_SELF'], "plugins", Example::class, "");
+   Html::header("Υποβολή Εργασίας", $_SERVER['PHP_SELF'], "plugins", Example::class, "",false);
 } else {
-   Html::helpHeader("TITRE", $_SERVER['PHP_SELF']);
+   Html::helpHeader("Υποβολή εργασίας", $_SERVER['PHP_SELF']);
 }
 
 $example = new Example();

@@ -161,6 +161,9 @@ $newexample = new \GlpiPlugin\Example\Centralform;
 if($newTicketID<>0){
    $contentToShow = "Επιτυχής καταχώρηση της εργασίας $newTicketID"; 
    $newexample->testCC($contentToShow); 
+   //Html::back();
+   //Html::redirect($_SERVER['HTTP_REFERER']);
+   Html::redirect("/") ; 
 }
  
 //$example->display($_POST);

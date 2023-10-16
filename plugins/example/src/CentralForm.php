@@ -182,7 +182,7 @@ class Centralform  extends CommonDBTM
             echo "$ID";
             echo "</td>";
         
-            $this->showFormButtons($options);
+            //$this->showFormButtons($options);
         // end main form 
         
             $config->showFormExample() ;
