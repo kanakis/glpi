@@ -106,73 +106,7 @@ class Example extends CommonDBTM {
    }
 
 
-   // public function addTicket($submitValues)
-   // {
-   //    print_r($submitValues) ; 
-   //    $typeOfSubmition = $submitValues['requestType']; 
-   //    $ITILCategory_ID = 0;
-   //    // Τυπος κατηγορίας ITIL Αιτήματος !!!!! 
-   //    if($submitValues['requestType']=='1.Προσθήκη δικαιωμάτων χρήστη.'){ $ITILCategory_ID = 11 ;}
-   //    if($submitValues['requestType']=='3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.'){ $ITILCategory_ID = 10 ;}
-   //    if($submitValues['requestType']=='2.Αφαίρεση δικαιωμάτων χρήστη.'){ $ITILCategory_ID = 57;} 
-   //    if($submitValues['requestType']=='4.Διαγραφή χρήστη/κατάργηση δικαιωμάτων.'){ $ITILCategory_ID = 56;}  //Διαγραφή χρήστη 
-
-   //    $contentToAdd =  $submitValues['RequestDescription']."<br>";
-   //    $contentToAdd .= "Κλάδος/Τμήμα :".$submitValues['klados']."<br>";
-   //    $contentToAdd .= "Προτεραιότητα :".$submitValues['priority']."<br>"  ;
-   //    $contentToAdd .= "Είδος αίτησης :".$submitValues['requestType']."<br>"; 
-   //    $contentToAdd .= "Ονομ/νυμο χρήστη που αφορούν οι αλλαγές :".$submitValues['UserFor']."<br>";
-   //    if(($typeOfSubmition=='1.Προσθήκη δικαιωμάτων χρήστη.')||
-   //       ($typeOfSubmition=='2.Αφαίρεση δικαιωμάτων χρήστη.')||
-   //       ($typeOfSubmition=='3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.'))
-   //       {
-   //          if($submitValues['irp']=='Ναι') {$contentToAdd .= "IRP-Κύρια ασφαλιστική εφαρμογή : ".$submitValues['irp']."<br>" ; }
-   //          if($submitValues['portalaccess']=='Ναι') {$contentToAdd .= "PORTAL : ".$submitValues['portalaccess']."<br>" ; } 
-   //          if($submitValues['NPBank']=='Ναι') {$contentToAdd .= "NP BANK : ".$submitValues['NPBank']."<br>" ; } 
-   //          if($submitValues['NPReports']=='Ναι') {$contentToAdd .= "NP REPORTS : ".$submitValues['NPReports']."<br>" ; } 
-   //          if($submitValues['msoutlook']=='Ναι') {$contentToAdd .= "MS OUTLOOK : ".$submitValues['msoutlook']."<br>" ; } 
-   //          if($submitValues['msoffice']=='Ναι') {$contentToAdd .= "MS OFFICE : ".$submitValues['msoffice']."<br>" ; } 
-   //          if($submitValues['faxserver']=='Ναι') {$contentToAdd .= "FAX SERVER : ".$submitValues['faxserver']."<br>" ; } 
-   //          if($submitValues['internetCheck']=='Ναι') {$contentToAdd .= "INTERNET : ".$submitValues['internetCheck']."<br>" ; } 
-   //          if($submitValues['MISOldCheck']=='Ναι') { $contentToAdd .= "MIS(ΠΑΛΑΙΟ) : ".$submitValues['MISOldCheck']."<br>" ; } 
-   //          if($submitValues['MISNewCheck']=='Ναι') {$contentToAdd .= "MIS(ΝΕΟ) : ".$submitValues['MISNewCheck']."<br>" ; } 
-   //          if($submitValues['PapyrusCheck']=='Ναι') {$contentToAdd .= "PAPYRUS : ".$submitValues['PapyrusCheck']."<br>" ; } 
-   //          if($submitValues['testirp']=='Ναι') {$contentToAdd .= "TEST IRP : ".$submitValues['testirp']."<br>" ; } 
-   //          if($submitValues['testportalcheck']=='Ναι') {$contentToAdd .= "TEST PORTAL : ".$submitValues['testportalcheck']."<br>" ; } 
-   //          if($submitValues['PayrollCheck']=='Ναι') {$contentToAdd .= "Πρόγραμμα μισθοδοσίας : ".$submitValues['PayrollCheck']."<br>" ; } 
-   //          if($submitValues['SolvencyCheck']=='Ναι') {$contentToAdd .= "Solvency II - Systemic : ".$submitValues['SolvencyCheck']."<br>" ; } 
-   //          if($submitValues['YSAECheck']=='Ναι') {$contentToAdd .= "ΥΣΑΕ : ".$submitValues['YSAECheck']."<br>" ; } 
-   //          if($submitValues['GDACheck']=='Ναι') {$contentToAdd .= "ΓΔΑ : ".$submitValues['GDACheck']."<br>" ; } 
-   //          if($submitValues['HICCheck']=='Ναι') {$contentToAdd .= " HIC : ".$submitValues['HICCheck']."<br>" ; } 
-   //          if($submitValues['investProgrammCheck']=='Ναι') {$contentToAdd .= "Επενδυτικό πρόγραμμα : ".$submitValues['investProgrammCheck']."<br>" ; } 
-   //          if($submitValues['CommonDeptFiles']=='Ναι') {$contentToAdd .= "Κοινόχρηστα αρχεία τμήματος : ".$submitValues['CommonDeptFiles']."<br>" ; } 
-   //          if($submitValues['agentsCheck']=='Ναι') {$contentToAdd .= "AGENTS : ".$submitValues['agentsCheck']."<br>" ; } 
-   //          if($submitValues['CustomAccessText']=='Ναι') {$contentToAdd .= "Custom SW : ".$submitValues['CustomAccessText']."<br>" ; } 
-   //          if($submitValues['InternetPages']=='Ναι') {$contentToAdd .= "Σελίδες Internet : ".$submitValues['InternetPages']."<br>" ; } 
-   //          if($submitValues['cddvd']=='Ναι') {$contentToAdd .= "CD\DVD : ".$submitValues['cddvd']."<br>" ; } 
-   //          if($submitValues['usbdisk']=='Ναι') {$contentToAdd .= "Usb Disk : ".$submitValues['usbdisk']."<br>" ; } 
-   //          if($submitValues['camera']=='Ναι') {$contentToAdd .= "Camera : ".$submitValues['camera']."<br>" ; } 
-   //          if($submitValues['customhw']=='Ναι') {$contentToAdd .= "Custom HW : ".$submitValues['customhw']."<br>" ; } 
-   //       }
-         
-
-
-   //    ini_set( "display_errors",1) ;
-   //    error_reporting(E_ALL); 
-   //    $ticket = new Ticket();
-   //    $newTicketID = $ticket->add([
-   //                   '_users_id_requester' => Session::getLoginUserID(),
-   //                   'users_id_recipient' => Session::getLoginUserID(),
-   //                   //'_groups_id_assign' => $submitValues['GroupAssignID'], 
-   //                   'name' => $submitValues['TitleTxt'],
-   //                   'description' => $submitValues['RequestDescription'] ,
-   //                   'content' => $contentToAdd,
-   //                   'status' => CommonITILObject::INCOMING , 
-   //                   'Assigned' => 'a.charonitakis@np-asfalistiki.gr', 
-   //                   'itilcategories_id' => $ITILCategory_ID
-   //                ]);
-   //    Log::history($newTicketID, 'Ticket', $contentToAdd, 'Ticket'); 
-   // }
+   
 
 
 
@@ -279,18 +213,7 @@ class Example extends CommonDBTM {
                <span dir='none'><select name='priority' id='priority' title='Προτεραιότητα' class='ms-RadioText'><option value='(1) Υψηλή'>(1) Υψηλή</option><option value='(2) Κανονική' selected='selected'>(2) Κανονική</option><option value='(3) Χαμηλή'>(3) Χαμηλή</option></select><br></span>
            </td>
            </tr>" ; 
-      //  $out .="<tr><td nowrap='true' valign='top' width='113px' ><span  id='_x0395__x03af__x03b4__x03bf__x03'>
-      //          <nobr>Είδος αίτησης<span class='ms-accentText' title='Αυτό το πεδίο είναι υποχρεωτικό.'> *</span></nobr>
-      //          </span></td>
-      //          <td valign='top' width='350px' class='ms-formbody'><span dir='none'>
-      //          <select name='requestType' id='RequestType' title='Είδος αίτησης Απαιτούμενο πεδίο' class='ms-RadioText'>
-      //              <option value='' selected='selected'></option>
-      //              <option value='1.Προσθήκη δικαιωμάτων χρήστη.'>1.Προσθήκη δικαιωμάτων χρήστη.</option>
-      //              <option value='2.Αφαίρεση δικαιωμάτων χρήστη.'>2.Αφαίρεση δικαιωμάτων χρήστη.</option>
-      //              <option value='3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.'>3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.</option>
-      //              <option value='4.Διαγραφή χρήστη/κατάργηση δικαιωμάτων.'>4.Διαγραφή χρήστη/κατάργηση δικαιωμάτων.</option>
-      //          </select><br></span>
-      //          </td></tr>";
+      
        $out .= "<tr ><td nowrap='true' valign='top' width='113px' ><span  id='_x039f__x03bd__x03bf__x03bc__x00'>
                <nobr>Ονομ/νυμο χρήστη που αφορούν οι αλλαγές</nobr></span></td>
                <td valign='top' width='350px' class='ms-formbody'>
@@ -440,12 +363,13 @@ class Example extends CommonDBTM {
       $out .= '<th>' . __('Φόρμα υποβολής Αιτήματος', 'myexampleplugin') . '</th>';
 
       echo "<tr class='tab_bg_1'>";
-      echo "<td>" . __('ID') . "</td>";
+      //echo "<td>" . __('ID') . "</td>";
+      echo "<td></td>";
       echo "<td>";
-      echo $ID;
+      //echo $ID;
       echo "</td>";
 
-      $this->showFormButtons($options);
+      //$this->showFormButtons($options);
 
       if ($options['display'] == true) {
          echo $out;
