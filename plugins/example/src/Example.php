@@ -43,6 +43,7 @@ use Log;
 use MassiveAction;
 use Session;
 use Ticket ;
+use User;
 
 // Class of the defined type
 class Example extends CommonDBTM {
@@ -108,15 +109,25 @@ class Example extends CommonDBTM {
 
    
 
+   function showExpForm($ID, array $options = []) {
+      
+      global $CFG_GLPI;
+      global $LANG;
+      $pmContact = new PluginMonitoringContact();
+      $this->initForm($ID, $options);
+      $this->showFormHeader($options);
 
+      
+      $this->showFormButtons(); 
+      $this->showFormFooter($options);
+
+      return TRUE; 
+   }
 
    /*
    * Example form 
-   * 
-   * 
-   * 
-   * 
-   */
+   *   *    * 
+   *    */
    function showForm($ID, array $options = []) {
       
       global $CFG_GLPI;
@@ -149,7 +160,7 @@ class Example extends CommonDBTM {
             //document.getElementById('submit').setAttribute('disabled', 'disabled');
         }
      }
-      function setACR(){jsAccessRights= True ; return }
+     // function setACR(){jsAccessRights= True ; return }
       function showBlocks(){
           console.log('showBlocks');
           var getSelectValue = document.getElementById('RequestType').value;
@@ -187,10 +198,10 @@ class Example extends CommonDBTM {
           
       }
       function validateForm() {
-         let jsTitleTxt = document.getElementById('TitleTxt').value;
-         let jsRequestType = document.getElementById('RequestType').value;
-         let jsKlados = document.getElementById('Klados').value;
-         let jsUserFor = document.getElementById('UserFor').value;
+         var jsTitleTxt = document.getElementById('TitleTxt').value;
+         var jsRequestType = document.getElementById('RequestType').value;
+         var jsKlados = document.getElementById('Klados').value;
+         var jsUserFor = document.getElementById('UserFor').value;
          
          if( jsRequestType == ''){ alert('Παρακαλώ επιλέξτε είδος αίτησης!'); return false;}
          if( jsTitleTxt == ''){ alert('Παρακαλώ δώστε ένα Τίτλο/ Περιγραφή για το αίτημα'); return false;}
