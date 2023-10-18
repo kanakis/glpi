@@ -136,7 +136,20 @@ class Example extends CommonDBTM {
       // ***************************************************************************************
       $out ="</td></tr><tr><td>
       <script>
-      
+      var jsAccessRights=false ; 
+      //console.log 'ACR :' + jsAccessRights ;
+      function handleChange(checkbox) {
+         if(checkbox.checked == true){
+            jsAccessRights= true; 
+            //console.log 'ACR :' + jsAccessRights ;
+             //document.getElementById('submit').removeAttribute('disabled');
+         }else{
+            if(jsAccessRights==false){}
+
+            //document.getElementById('submit').setAttribute('disabled', 'disabled');
+        }
+     }
+      function setACR(){jsAccessRights= True ; return }
       function showBlocks(){
           console.log('showBlocks');
           var getSelectValue = document.getElementById('RequestType').value;
@@ -178,12 +191,12 @@ class Example extends CommonDBTM {
          let jsRequestType = document.getElementById('RequestType').value;
          let jsKlados = document.getElementById('Klados').value;
          let jsUserFor = document.getElementById('UserFor').value;
-
+         
          if( jsRequestType == ''){ alert('Παρακαλώ επιλέξτε είδος αίτησης!'); return false;}
          if( jsTitleTxt == ''){ alert('Παρακαλώ δώστε ένα Τίτλο/ Περιγραφή για το αίτημα'); return false;}
          if( jsKlados == ''){ alert('Παρακαλώ επιλέξτε κλάδο!'); return false;}
          if( (jsUserFor == '') &&(jsRequestType !='3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.') ){ alert('Παρακαλώ επιλέξτε χρήστη!'); return false;}
-
+         //if( (jsAccessRights ==false )&& (jsRequestType !='4.Διαγραφή χρήστη/κατάργηση δικαιωμάτων.')){alert('Παρακαλώ επιλέξτε τουλάχιστον 1 δικαίωμα !'); return false;} 
        }
    </script>
        <form name='AddTicketform' action='/plugins/example/front/addnpticket.form.php' onsubmit='return validateForm()' method='post'>
@@ -242,7 +255,7 @@ class Example extends CommonDBTM {
                    <table id='' cellpadding='2' cellspacing='1' width='100%' border='1'>
                    <tr><td><span title='IRP-Κύρια ασφαλιστική εφαρμογή'>
                        <input name='irp' type='hidden' value='ΟΧΙ'>
-                       <input name='irp' type='checkbox' value='ΝΑΙ'>&nbsp;<label for='irp'>IRP-Κύρια ασφαλιστική εφαρμογή</label></span></td>
+                       <input name='irp' type='checkbox' value='ΝΑΙ' onchange='handleChange(this);' >&nbsp;<label for='irp'>IRP-Κύρια ασφαλιστική εφαρμογή</label></span></td>
                        <td><span title='PORTAL'>
                        <input name='portalaccess' type='hidden' value='ΟΧΙ'>
                        <input name='portalaccess' type='checkbox' Value='Ναι'>&nbsp;<label for='portalaccess'>PORTAL</label></span></td>
