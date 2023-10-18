@@ -173,8 +173,20 @@ class Example extends CommonDBTM {
           //document.getElementById('PassValue').style.display='block';
           
       }
+      function validateForm() {
+         let jsTitleTxt = document.getElementById('TitleTxt').value;
+         let jsRequestType = document.getElementById('RequestType').value;
+         let jsKlados = document.getElementById('Klados').value;
+         let jsUserFor = document.getElementById('UserFor').value;
+
+         if( jsRequestType == ''){ alert('Παρακαλώ επιλέξτε είδος αίτησης!'); return false;}
+         if( jsTitleTxt == ''){ alert('Παρακαλώ δώστε ένα Τίτλο/ Περιγραφή για το αίτημα'); return false;}
+         if( jsKlados == ''){ alert('Παρακαλώ επιλέξτε κλάδο!'); return false;}
+         if( (jsUserFor == '') &&(jsRequestType !='3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.') ){ alert('Παρακαλώ επιλέξτε χρήστη!'); return false;}
+
+       }
    </script>
-       <form name='AddTicketform' action='/plugins/example/front/addnpticket.form.php' method='post'>
+       <form name='AddTicketform' action='/plugins/example/front/addnpticket.form.php' onsubmit='return validateForm()' method='post'>
        <input type='hidden' name='id' value='23'>
        <Input type='hidden' name='item' value='32'>
        <input type='hidden' name='_glpi_csrf_token' value='".Session::getNewCSRFToken()."'>
@@ -194,7 +206,7 @@ class Example extends CommonDBTM {
                    <option value='4.Διαγραφή χρήστη/κατάργηση δικαιωμάτων.'>4.Διαγραφή χρήστη/κατάργηση δικαιωμάτων.</option>
                </select>
        </td></tr>
-       <tr><td>Τίτλος-Περιγραφή αιτήματος </td><td><input type='text' value='' maxlength='255' name='TitleTxt' title='Τίτλος-Περιγραφή αιτήματος Απαιτούμενο πεδίο'></td></tr>"; 
+       <tr><td>Τίτλος-Περιγραφή αιτήματος </td><td><input type='text' value='' maxlength='255' name='TitleTxt' id='TitleTxt' title='Τίτλος-Περιγραφή αιτήματος Απαιτούμενο πεδίο'></td></tr>"; 
        $out .="<tr><td nowrap='true' valign='top' width='113px' ><span  id='_x03a0__x03b5__x03c1__x03b9__x03'>
                        <nobr>Περιγραφή</nobr></span></td><td valign='top' width='350px' class='ms-formbody'>
                    <span dir='none'><span dir='ltr'><textarea rows='10' cols='120' name='RequestDescription' title='Πρόγραμμα επεξεργασίας εμπλουτισμένου κειμένου Περιγραφή' class='ms-long'></textarea><input type='hidden' id='TextField_spSave'></span><br><span class='ms-formdescription'></span><br></span>				
@@ -218,7 +230,7 @@ class Example extends CommonDBTM {
                <nobr>Ονομ/νυμο χρήστη που αφορούν οι αλλαγές</nobr></span></td>
                <td valign='top' width='350px' class='ms-formbody'>
                <div dir='none'>
-                  <input type='text' name='UserFor' class='sp-peoplepicker-editorInput' size='50' autocomplete='off' value='' id='_EditorInput' title='Ονομ/νυμο χρήστη που αφορούν οι αλλαγές' autocorrect='off' autocapitalize='off' data-sp-peoplepickereditor='true'></div>
+                  <input type='text' name='UserFor' id='UserFor' class='sp-peoplepicker-editorInput' size='50' autocomplete='off' value='' id='_EditorInput' title='Ονομ/νυμο χρήστη που αφορούν οι αλλαγές' autocorrect='off' autocapitalize='off' data-sp-peoplepickereditor='true'></div>
                </div>
                <span id='InitialHelpText' class=''>Εισαγωγή ονομάτων ή διευθύνσεων ηλεκτρονικού ταχυδρομείου...<br>Για νέο χρήστη , συμπληρώστε το όνομ/νυμο μόνο στην περιγραφή.</span>
                </td>
