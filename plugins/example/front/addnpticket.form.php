@@ -36,6 +36,7 @@
 //use GlpiPlugin\Example\AddNPTicket;
 use  Glpi\Event ;
 use GlpiPlugin\Example\Centralform;
+use GlpiPlugin\Example; 
 use glpi\Debug ;
 use DbUtils ; 
 use CommonITILObject ; 
@@ -101,19 +102,68 @@ if(($typeOfSubmition=='1.Προσθήκη δικαιωμάτων χρήστη.')
 
 ini_set( "display_errors",1) ;
 error_reporting(E_ALL); 
+
+$actor = 'a.charonitakis@np-asfalistiki.gr'; 
+// $groupsTouse => GetuserGroups()
+$user = new User();
+$userToAssign = $user->getUsersIdByEmails($actor);
+
+print_r($userToAssign);
+echo '@@@@@@@@@';
+$userToAssignID= $userToAssign; 
+echo'||'.print_r($userToAssign).'||'.$userToAssignID.'||';
+// global $DB;
+
+//       $query="SELECT DISTINCT FK_groups
+//       FROM glpi_users_groups
+//       WHERE FK_users='$userToAssignID';";
+//       $result=$DB->query($query);
+//       if ($DB->numrows($result)>0){
+//          $groups=array();
+//          while ($data=$DB->fetch_assoc($result)){
+//             $groups[]=$data['FK_groups'];
+//          }
+//       }
+// echo '||'.print_r($groups).'||'; 
+
+//$userLdapToAssign = $user->ldap_get_user_groups($user); 
+// $grouptoAssign = new Group() ; 
+// $grouptoAssign->getEntityID();  
+// $grouptoAssign->getFromDBByCrit(
+// $grouptoAssign->getFromDBByCrit()
+;
+//$notify = isset($user['_users_id_requester_notif']['use_notification'][$index]) ? $actorList['_users_id_requester_notif']['use_notification'][$index] : 1;
+//$alternateEmail = isset($actorList['_users_id_requester_notif']['use_notification'][$index]) ? $actorList['_users_id_requester_notif']['alternative_email'][$index] : '';
+
 $ticket = new Ticket();
 $newTicketID = $ticket->add([
                '_users_id_requester' => Session::getLoginUserID(),
                'users_id_recipient' => Session::getLoginUserID(),
-               //'_groups_id_assign' => $_POST['GroupAssignID'], 
+               '_groups_id_assign' => 11,
+               //'_users_id_assign' => $_POST['UserFor'],  // $userToAssign , // $user->getID(),
                'name' => $_POST['TitleTxt'],
                'description' => $_POST['RequestDescription'] ,
                'content' => $contentToAdd,
                'status' => CommonITILObject::INCOMING , 
-               'Assigned' => 'a.charonitakis@np-asfalistiki.gr', 
+               //'Assigned' => 'a.charonitakis@np-asfalistiki.gr', 
                'itilcategories_id' => $ITILCategory_ID
             ]);
-Log::history($newTicketID, 'Ticket', $contentToAdd, 'Ticket');            
+Log::history($newTicketID, 'Ticket', $contentToAdd, 'Ticket');  
+/*
+*
+*/
+ini_set( "display_errors",1) ;
+error_reporting(E_ALL); 
+//$actor = 'a.charonitakis@np-asfalistiki.gr'; 
+
+//$user = new User();
+//$user->getFromDBbyEmail($actor);
+//echo $user->getUsername()."<br>"; 
+echo print_r($user); 
+echo '|||||||';
+print_r($newTicketID);
+
+        
 //$ticket->
 //$newTicketID = $ticket->getTicketId() ; 
 
@@ -161,9 +211,11 @@ $newexample = new \GlpiPlugin\Example\Centralform;
 if($newTicketID<>0){
    $contentToShow = "Επιτυχής καταχώρηση της εργασίας $newTicketID"; 
    $newexample->testCC($contentToShow); 
+  // $newexample->addticketSuccess($newTicketID) ;
    //Html::back();
-   //Html::redirect($_SERVER['HTTP_REFERER']);
-   Html::redirect("/") ; 
+  // Html::redirect($_SERVER['HTTP_REFERER']);
+   //addMessageAfterRedirect($LANG['common'][54] . "&nbsp;: mailgate " . $mailgateID, false, ERROR);
+    Html::redirect("/") ; 
 }
  
 //$example->display($_POST);

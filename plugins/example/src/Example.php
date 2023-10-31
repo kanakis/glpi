@@ -107,11 +107,24 @@ class Example extends CommonDBTM {
    }
 
 
-   
+   public function returnUsers()
+   {
+      global $CFG_GLPI, $DB;
+      global $LANG;
 
-   function showExpForm($ID, array $options = []) {
+      ini_set( "display_errors",1) ;
+      error_reporting(E_ALL); 
+      $query = "SELECT * FROM glpi.glpi_users " ; // where "; // user_dn <> '' and is_active=1 ";
+      $result = $DB->query($query);
+      $numberOfRows = $DB->numrows($result);
+      $data = $DB->fetch_array($result);
+
+      return ; 
+   }
+
+   function showForm_Exp($ID, array $options = []) {
       
-      global $CFG_GLPI;
+      global $CFG_GLPI ,$DB;
       global $LANG;
       $pmContact = new PluginMonitoringContact();
       $this->initForm($ID, $options);
@@ -128,18 +141,36 @@ class Example extends CommonDBTM {
    * Example form 
    *   *    * 
    *    */
+   /**
+    * Summary of showForm
+    * @param mixed $ID
+    * @param array $options
+    * @return bool|string
+    */
    function showForm($ID, array $options = []) {
       
-      global $CFG_GLPI;
+      global $CFG_GLPI , $DB;
       
       $this->initForm($ID, $options);
       $this->showFormHeader($options);
+
+      // $backtrace = debug_backtrace();
+      // print_r( $backtrace );
 
       //alx
       if (!isset($options['display'])) {
          //display per default
          $options['display'] = true;
       }
+      ini_set( "display_errors",1) ;
+      error_reporting(E_ALL); 
+      //returnUsers(); 
+      $query = "SELECT * FROM glpi.glpi_users where  user_dn <> '' and is_active=1 ";
+      $result = $DB->query($query);
+      $numberOfRows = $DB->numrows($result);
+      echo "Rows:".$numberOfRows ;
+     //print_r($result);
+      //$data = $DB->fetch_array($result);
 
       $params = $options;
       //do not display called elements per default; they'll be displayed or returned here
@@ -254,9 +285,19 @@ class Example extends CommonDBTM {
                <nobr>Ονομ/νυμο χρήστη που αφορούν οι αλλαγές</nobr></span></td>
                <td valign='top' width='350px' class='ms-formbody'>
                <div dir='none'>
-                  <input type='text' name='UserFor' id='UserFor' class='sp-peoplepicker-editorInput' size='50' autocomplete='off' value='' id='_EditorInput' title='Ονομ/νυμο χρήστη που αφορούν οι αλλαγές' autocorrect='off' autocapitalize='off' data-sp-peoplepickereditor='true'></div>
-               </div>
-               <span id='InitialHelpText' class=''>Εισαγωγή ονομάτων ή διευθύνσεων ηλεκτρονικού ταχυδρομείου...<br>Για νέο χρήστη , συμπληρώστε το όνομ/νυμο μόνο στην περιγραφή.</span>
+                  <select name='UserFor' id='UserFor' class='ms-RadioText'>
+                  <option value='' selected='selected'></option>";
+                  foreach ($result as $row) {   
+                   $out .= "<option value='".$row["firstname"]." ".$row["realname"] ."'>".$row["firstname"]." ".$row["realname"] ."</option>" ; 
+                  }
+
+                  //<input type='text' name='UserFor' id='UserFor' class='sp-peoplepicker-editorInput' size='50' autocomplete='off' value='' id='_EditorInput' title='Ονομ/νυμο χρήστη που αφορούν οι αλλαγές' autocorrect='off' autocapitalize='off' data-sp-peoplepickereditor='true'></div>
+              $out .= " </div>" ;
+               //echo Dropdown::getDropdownName("glpi_entities", $data['entities_id']) . "</td>";
+//                ini_set( "display_errors",1) ;
+// error_reporting(E_ALL); 
+    //  $out .=  Dropdown::getDropdownName("glpi_entities", $data['name']) ; 
+      $out .="<span id='InitialHelpText' class=''>Εισαγωγή ονομάτων ή διευθύνσεων ηλεκτρονικού ταχυδρομείου...<br>Για νέο χρήστη , συμπληρώστε το όνομ/νυμο μόνο στην περιγραφή.</span>
                </td>
                </tr>";
        $out .=" <tr id='UserRights' style='display:none;'><td nowrap='true' valign='top' width='113px' >
@@ -458,6 +499,23 @@ class Example extends CommonDBTM {
       ];
 
       return $tab;
+   }
+
+   // This function to obtain all the groups of a user
+   function getUserGroups($userID){
+      global $DB;
+
+      $query="SELECT DISTINCT FK_groups
+            FROM glpi_users_groups
+            WHERE FK_users='$userID';";
+      $result=$DB->query($query);
+      if ($DB->numrows($result)>0){
+         $groups=array();
+         while ($data=$DB->fetch_assoc($result)){
+            $groups[]=$data['FK_groups'];
+         }
+      }
+      return $groups;
    }
    public static function showMiniDashboard(): void {
       Plugin::doHook(Hooks::DISPLAY_CENTRAL);
