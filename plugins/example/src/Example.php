@@ -168,7 +168,7 @@ class Example extends CommonDBTM {
       $query = "SELECT * FROM glpi.glpi_users where  user_dn <> '' and is_active=1 ";
       $result = $DB->query($query);
       $numberOfRows = $DB->numrows($result);
-      echo "Rows:".$numberOfRows ;
+      //echo "Rows:".$numberOfRows ;
      //print_r($result);
       //$data = $DB->fetch_array($result);
 

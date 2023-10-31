@@ -108,10 +108,10 @@ $actor = 'a.charonitakis@np-asfalistiki.gr';
 $user = new User();
 $userToAssign = $user->getUsersIdByEmails($actor);
 
-print_r($userToAssign);
-echo '@@@@@@@@@';
+// print_r($userToAssign);
+// echo '@@@@@@@@@';
 $userToAssignID= $userToAssign; 
-echo'||'.print_r($userToAssign).'||'.$userToAssignID.'||';
+// echo'||'.print_r($userToAssign).'||'.$userToAssignID.'||';
 // global $DB;
 
 //       $query="SELECT DISTINCT FK_groups
@@ -159,9 +159,9 @@ error_reporting(E_ALL);
 //$user = new User();
 //$user->getFromDBbyEmail($actor);
 //echo $user->getUsername()."<br>"; 
-echo print_r($user); 
-echo '|||||||';
-print_r($newTicketID);
+// echo print_r($user); 
+// echo '|||||||';
+// print_r($newTicketID);
 
         
 //$ticket->
