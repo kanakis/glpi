@@ -306,82 +306,82 @@ class Example extends CommonDBTM {
                <span dir='none'>
                    <table id='' cellpadding='2' cellspacing='1' width='100%' border='1'>
                    <tr><td><span title='IRP-Κύρια ασφαλιστική εφαρμογή'>
-                       <input name='irp' type='hidden' value='ΟΧΙ'>
-                       <input name='irp' type='checkbox' value='ΝΑΙ' onchange='handleChange(this);' >&nbsp;<label for='irp'>IRP-Κύρια ασφαλιστική εφαρμογή</label></span></td>
+                       <input name='irp' type='hidden' value='Όχι'>
+                       <input name='irp' type='checkbox' value='Ναί' onchange='handleChange(this);' >&nbsp;<label for='irp'>IRP-Κύρια ασφαλιστική εφαρμογή</label></span></td>
                        <td><span title='PORTAL'>
-                       <input name='portalaccess' type='hidden' value='ΟΧΙ'>
-                       <input name='portalaccess' type='checkbox' Value='Ναι'>&nbsp;<label for='portalaccess'>PORTAL</label></span></td>
+                       <input name='portalaccess' type='hidden' value='Όχι'>
+                       <input name='portalaccess' type='checkbox' Value='Ναί'>&nbsp;<label for='portalaccess'>PORTAL</label></span></td>
                        <td><span title='NP BANK'>
-                       <input name='NPBank' type='hidden' value='ΟΧΙ'>
-                       <input name='NPBank' type='checkbox' value='Ναι'>&nbsp;<label for='NPBank'>NP BANK</label></span></td></tr>
+                       <input name='NPBank' type='hidden' value='Όχι'>
+                       <input name='NPBank' type='checkbox' value='Ναί'>&nbsp;<label for='NPBank'>NP BANK</label></span></td></tr>
                    <tr><td><span title='NP REPORTS'>
-                        <input name='NPReports' type='hidden' value='ΟΧΙ'>
-                        <input name='NPReports' type='checkbox' value='Ναι'>&nbsp;<label for='NPReports'>NP REPORTS</label></span></td>
+                        <input name='NPReports' type='hidden' value='Όχι'>
+                        <input name='NPReports' type='checkbox' value='Ναί'>&nbsp;<label for='NPReports'>NP REPORTS</label></span></td>
                        <td><span title='MS OUTLOOK'>
-                       <input name='msoutlook' type='hidden' value='ΟΧΙ'>
-                       <input name='msoutlook' type='checkbox' value='Ναι' >&nbsp;<label for='msoutlook'>MS OUTLOOK</label></span></td>
+                       <input name='msoutlook' type='hidden' value='Όχι'>
+                       <input name='msoutlook' type='checkbox' value='Ναί' >&nbsp;<label for='msoutlook'>MS OUTLOOK</label></span></td>
                        <td><span title='MS OFFICE(Word,Excel,Powerpoint)'>
-                       <input name='msoffice' type='hidden' value='ΟΧΙ'>
-                       <input name='msoffice' type='checkbox' value='Ναι'>&nbsp;<label for='msoffice'>MS OFFICE(Word,Excel,Powerpoint)</label></span></td></tr>
+                       <input name='msoffice' type='hidden' value='Όχι'>
+                       <input name='msoffice' type='checkbox' value='Ναί'>&nbsp;<label for='msoffice'>MS OFFICE(Word,Excel,Powerpoint)</label></span></td></tr>
                        <tr><td><span title='FAX SERVER'>
-                       <input name='faxserver' type='hidden' value='ΟΧΙ'>
-                       <input name='faxserver' type='checkbox' value='Ναι'>&nbsp;<label for='faxserver'>FAX SERVER</label></span></td>
+                       <input name='faxserver' type='hidden' value='Όχι'>
+                       <input name='faxserver' type='checkbox' value='Ναί'>&nbsp;<label for='faxserver'>FAX SERVER</label></span></td>
                        <td><span title='INTERNET'>
-                       <input name='internetCheck' type='hidden' value='ΟΧΙ'>
-                       <input name='internetCheck' type='checkbox' value='Ναι'>&nbsp;<label for='internetCheck'>INTERNET</label></span></td>
+                       <input name='internetCheck' type='hidden' value='Όχι'>
+                       <input name='internetCheck' type='checkbox' value='Ναί'>&nbsp;<label for='internetCheck'>INTERNET</label></span></td>
                        <td><span title='MIS(ΠΑΛΑΙΟ)'>
-                       <input name='MISOldCheck' type='hidden' value='ΟΧΙ'>
-                       <input name='MISOldCheck' type='checkbox' value='Ναι'>&nbsp;<label for='MISOldCheck'>MIS(ΠΑΛΑΙΟ)</label></span></td></tr>
+                       <input name='MISOldCheck' type='hidden' value='Όχι'>
+                       <input name='MISOldCheck' type='checkbox' value='Ναί'>&nbsp;<label for='MISOldCheck'>MIS(ΠΑΛΑΙΟ)</label></span></td></tr>
                        <tr><td><span title='MIS(ΝΕΟ)'>
-                       <input name='MISNewCheck' type='hidden' value='ΟΧΙ'>
-                       <input name='MISNewCheck' type='checkbox' value='Ναι'>&nbsp;<label for='MISNewCheck'>MIS(ΝΕΟ)</label></span></td>
+                       <input name='MISNewCheck' type='hidden' value='Όχι'>
+                       <input name='MISNewCheck' type='checkbox' value='Ναί'>&nbsp;<label for='MISNewCheck'>MIS(ΝΕΟ)</label></span></td>
                        <td><span title='PAPYRUS'>
-                       <input name='PapyrusCheck' type='hidden' value='ΟΧΙ'>
-                       <input name='PapyrusCheck' type='checkbox' value='Ναι'>&nbsp;<label for='PapyrusCheck'>PAPYRUS</label></span></td>
+                       <input name='PapyrusCheck' type='hidden' value='Όχι'>
+                       <input name='PapyrusCheck' type='checkbox' value='Ναί'>&nbsp;<label for='PapyrusCheck'>PAPYRUS</label></span></td>
                        <td><span title='TEST IRP'>
-                       <input name='testirp' type='hidden' value='ΟΧΙ'>
-                       <input name='testirp' type='checkbox' value='Ναι'>&nbsp;<label for='testirp'>TEST IRP</label></span></td></tr>
+                       <input name='testirp' type='hidden' value='Όχι'>
+                       <input name='testirp' type='checkbox' value='Ναί'>&nbsp;<label for='testirp'>TEST IRP</label></span></td></tr>
                        <tr><td><span title='TEST PORTAL'>
    
-                       <input name='testportalcheck' type='hidden' value='ΟΧΙ'>
-                       <input name='testportalcheck' type='checkbox' value='Ναι'>&nbsp;<label for='testportalcheck'>TEST PORTAL</label></span></td>
+                       <input name='testportalcheck' type='hidden' value='Όχι'>
+                       <input name='testportalcheck' type='checkbox' value='Ναί'>&nbsp;<label for='testportalcheck'>TEST PORTAL</label></span></td>
                        <td><span title='Πρόγραμμα μισθοδοσίας'>
                        
-                       <input name='PayrollCheck' type='hidden' value='ΟΧΙ'>
-                       <input name='PayrollCheck' type='checkbox' value='Ναι'>&nbsp;<label for='PayrollCheck'>Πρόγραμμα μισθοδοσίας</label></span></td>
+                       <input name='PayrollCheck' type='hidden' value='Όχι'>
+                       <input name='PayrollCheck' type='checkbox' value='Ναί'>&nbsp;<label for='PayrollCheck'>Πρόγραμμα μισθοδοσίας</label></span></td>
                        <td><span title='Solvency II - Systemic'>
    
-                       <input name='SolvencyCheck' type='hidden' value='ΟΧΙ'>
-                       <input name='SolvencyCheck' type='checkbox' value='Ναι'>&nbsp;<label for='SolvencyCheck'>Solvency II - Systemic</label></span></td></tr>
+                       <input name='SolvencyCheck' type='hidden' value='Όχι'>
+                       <input name='SolvencyCheck' type='checkbox' value='Ναί'>&nbsp;<label for='SolvencyCheck'>Solvency II - Systemic</label></span></td></tr>
                        <tr><td><span title='ΥΣΑΕ'>
    
-                       <input name='YSAECheck' type='hidden' value='ΟΧΙ'>
-                       <input name='YSAECheck' type='checkbox' value='Ναι'>&nbsp;<label for='YSAECheck'>ΥΣΑΕ</label></span></td>
+                       <input name='YSAECheck' type='hidden' value='Όχι'>
+                       <input name='YSAECheck' type='checkbox' value='Ναί'>&nbsp;<label for='YSAECheck'>ΥΣΑΕ</label></span></td>
                        <td><span title='ΓΔΑ'>
                        
-                       <input name='GDACheck' type='hidden' value='ΟΧΙ'>
-                       <input name='GDACheck' type='checkbox' value='Ναι'>&nbsp;<label for='GDACheck'>ΓΔΑ</label></span></td>
+                       <input name='GDACheck' type='hidden' value='Όχι'>
+                       <input name='GDACheck' type='checkbox' value='Ναί'>&nbsp;<label for='GDACheck'>ΓΔΑ</label></span></td>
                        <td><span title='HIC'>
                        
-                       <input name='HICCheck' type='hidden' value='ΟΧΙ'>
-                       <input name='HICCheck' type='checkbox' value='Ναι'>&nbsp;<label for='HICCheck'>HIC</label></span></td></tr>
+                       <input name='HICCheck' type='hidden' value='Όχι'>
+                       <input name='HICCheck' type='checkbox' value='Ναί'>&nbsp;<label for='HICCheck'>HIC</label></span></td></tr>
                    <tr><td><span title='Επενδυτικό πρόγραμμα'>
                    
-                   <input name='investProgrammCheck' type='hidden' value='ΟΧΙ'>
-                      <input name='investProgrammCheck' type='checkbox' value='Ναι'>&nbsp;<label for='investProgrammCheck'>Επενδυτικό πρόγραμμα</label></span></td>
+                   <input name='investProgrammCheck' type='hidden' value='Όχι'>
+                      <input name='investProgrammCheck' type='checkbox' value='Ναί'>&nbsp;<label for='investProgrammCheck'>Επενδυτικό πρόγραμμα</label></span></td>
                        <td><span title='Κοινόχρηστα αρχεία τμήματος'>
                        
-                       <input name='CommonDeptFiles' type='hidden' value='ΟΧΙ'>
-                       <input name='CommonDeptFiles' type='checkbox' value='Ναι'>&nbsp;<label for='CommonDeptFiles'>Κοινόχρηστα αρχεία τμήματος</label></span></td>
+                       <input name='CommonDeptFiles' type='hidden' value='Όχι'>
+                       <input name='CommonDeptFiles' type='checkbox' value='Ναί'>&nbsp;<label for='CommonDeptFiles'>Κοινόχρηστα αρχεία τμήματος</label></span></td>
                        <td><span title='AGENTS'>
                        
-                       <input name='agentsCheck' type='hidden' value='ΟΧΙ'>
-                       <input name='agentsCheck' type='checkbox' value='Ναι'>&nbsp;<label for='agentsCheck'>AGENTS</label></span></td></tr>
+                       <input name='agentsCheck' type='hidden' value='Όχι'>
+                       <input name='agentsCheck' type='checkbox' value='Ναί'>&nbsp;<label for='agentsCheck'>AGENTS</label></span></td></tr>
                    <tr><td colspan=3><span title='Καθορίστε τη δική σας τιμή:'>
                    
                    <label for='CustomAccessText'>Καθορίστε τη δική σας τιμή:</label></span>
                        &nbsp;&nbsp;&nbsp;
-                       <input type='text' maxlength='255' name='CustomAccessText' tabindex='-1' value='' title='Δικαιώματα Εφαρμογών: Καθορίστε τη δική σας τιμή:'></td></tr>
+                       <input type='text' maxlength='255' name='CustomAccessText' id='CustomAccessText' tabindex='-1' value='' title='Δικαιώματα Εφαρμογών: Καθορίστε τη δική σας τιμή:'></td></tr>
                        <tr><td colspan=2></td></tr>
                       
              </table>
@@ -406,16 +406,16 @@ class Example extends CommonDBTM {
        <table cellpadding='0' cellspacing='1'>
           <tbody>
           <tr><td><span class='ms-RadioText' title='CD/DVD'>
-                    <input name='cddvd' type='hidden' value='ΟΧΙ'>
-                    <input name='cddvd' type='checkbox' value='Ναι'><label for='_x0394__x03b9__x03ba__x03b1__x03_1f98a32f-ff64-441c-b22a-24567571e2be_MultiChoiceOption_0'>CD/DVD</label>
+                    <input name='cddvd' type='hidden' value='Όχι'>
+                    <input name='cddvd' type='checkbox' value='Ναί'><label for='_x0394__x03b9__x03ba__x03b1__x03_1f98a32f-ff64-441c-b22a-24567571e2be_MultiChoiceOption_0'>CD/DVD</label>
                    </span></td>
                    <td><span class='ms-RadioText' title='USB DISK'>
-                     <input name='usbdisk' type='hidden' value='ΟΧΙ'>
-                     <input name='usbdisk' type='checkbox' value='Ναι'><label for='_x0394__x03b9__x03ba__x03b1__x03_1f98a32f-ff64-441c-b22a-24567571e2be_MultiChoiceOption_1'>USB DISK</label>
+                     <input name='usbdisk' type='hidden' value='Όχι'>
+                     <input name='usbdisk' type='checkbox' value='Ναί'><label for='_x0394__x03b9__x03ba__x03b1__x03_1f98a32f-ff64-441c-b22a-24567571e2be_MultiChoiceOption_1'>USB DISK</label>
                    </span></td>
                    <td><span class='ms-RadioText' title='Σύνδεση φωτογραφικής μηχανής'>
-                   <input name='camera' type='hidden' value='ΟΧΙ'>
-                   <input name='camera' type='checkbox' value='Ναι'><label for='_x0394__x03b9__x03ba__x03b1__x03_1f98a32f-ff64-441c-b22a-24567571e2be_MultiChoiceOption_2'>Σύνδεση φωτογραφικής μηχανής</label>
+                   <input name='camera' type='hidden' value='Όχι'>
+                   <input name='camera' type='checkbox' value='Ναί'><label for='_x0394__x03b9__x03ba__x03b1__x03_1f98a32f-ff64-441c-b22a-24567571e2be_MultiChoiceOption_2'>Σύνδεση φωτογραφικής μηχανής</label>
                    </span></td></tr>
                    <tr><td colspan=3><span class='ms-RadioText' title='Καθορίστε τη δική σας τιμή:'>
                      <label for='_x0394__x03b9__x03ba__x03b1__x03_1f98a32f-ff64-441c-b22a-24567571e2beFillInRadio'>Καθορίστε τη δική σας τιμή:</label>
