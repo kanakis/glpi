@@ -36,6 +36,10 @@
 use GlpiPlugin\Example\Dropdown;
 use GlpiPlugin\Example\Example;
 use Dropdown as GlpiDropdown;
+use User; 
+use Group; 
+use Ticket ; 
+use Session ; 
 
 // Hook called on profile change
 // Good place to evaluate the user right on this plugin
@@ -712,10 +716,34 @@ function plugin_example_display_central() {
       echo "<tr class='tab_bg_1'>";
       echo "<td><div style='text-align:left;color:#DB6116'>&nbsp;&nbsp;&nbsp;&nbsp;
                                 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' onhover=''><button style='color:#DB6116; font-size:11pt'> Υποβολή αιτήματος - εργασίας </button></spa> </div></td>";
-      echo "<td> ";
+                                <a href='/front/helpdesk.public.php?create_ticket=1' title='Πατήστε εδώ για να υποβάλετε αίτημα ' 
+                                       class='btn btn-sm btn-outline-secondary'
+                                       <span style='color:#DB6116;font-size:13pt ; font:Verdana ;' >+ Υποβολή αιτήματος υποστήριξης χρηστών – Help Desk</span></a> </div></td>";
+      echo "<td> &nbsp;</br>";
       //echo $ID;
       echo "</td>";
+
+      echo "<tr class='tab_bg_1'>";
+      echo "<td><div style='text-align:left;color:#DB6116'>&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' 
+                                class='btn btn-sm btn-outline-secondary'><button style='color:#DB6116; font-size:13pt'>+ Αλλαγές προσβάσεων | νέος σταθμός εργασίας  </button></spa> </div></td>";
+      echo "<td> ";
+      // <a class="btn btn-sm btn-outline-secondary" href="/front/helpdesk.public.php?create_ticket=1">
+      //       <span>
+      //                      <i class="ti ti-plus"></i>
+      //                   Create a ticket
+      //    </span>
+      //             </a>
+      //class='ti ti-plus'
+      // Group"
+      // $groups = Group::getGroups(Context::getContext()->language->id, true);
+      // $userGroup = DataObject::get_one('Group', "Code = 'customers'");
+      // //$userSession =  Session::getUserGroups() ; 
+      // //echo $userSession; 
+      // //print_r( $userSession ); 
+
+      
 
       //$this->showFormButtons($options);
 // end main form 

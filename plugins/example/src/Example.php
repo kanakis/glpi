@@ -249,60 +249,84 @@ class Example extends CommonDBTM {
        <input type='hidden' name='GroupAssignID' value='11'>       
        ";
        $out .="<div id='MainFormTable' style='display:block;'>";
-       $out .="<table style = 'text-align:left;' border=1 >";
-       $out .="<tr><td nowrap='true' valign='top' width='113px' ><span  id='_x0395__x03af__x03b4__x03bf__x03'>
-       <nobr>Είδος αίτησης<span class='ms-accentText' title='Αυτό το πεδίο είναι υποχρεωτικό.'> *</span></nobr>
-       </span></td><td>
-                <select name='requestType' id='RequestType' title='Είδος αίτησης Απαιτούμενο πεδίο' onchange='showBlocks()'>
+       $out .="<table style = 'text-align:left;' border=1 width='80%'>";
+       $out .="<tr><td nowrap='true' valign='top' width='113px' >
+                   <nobr>Είδος αίτησης<span  title='Αυτό το πεδίο είναι υποχρεωτικό.'> *</nobr></span></td>
+                <td><select name='requestType' id='RequestType' title='Είδος αίτησης Απαιτούμενο πεδίο' onchange='showBlocks()'>
                    <option value='' selected='selected'></option>
                    <option value='1.Προσθήκη δικαιωμάτων χρήστη.'>1.Προσθήκη δικαιωμάτων χρήστη.</option>
                    <option value='2.Αφαίρεση δικαιωμάτων χρήστη.'>2.Αφαίρεση δικαιωμάτων χρήστη.</option>
                    <option value='3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.'>3.Νέος σταθμός εργασίας/Δικαιώματα χρήστη.</option>
                    <option value='4.Διαγραφή χρήστη/κατάργηση δικαιωμάτων.'>4.Διαγραφή χρήστη/κατάργηση δικαιωμάτων.</option>
                </select>
-       </td></tr>
-       <tr><td>Τίτλος-Περιγραφή αιτήματος </td><td><input type='text' value='' maxlength='255' name='TitleTxt' id='TitleTxt' title='Τίτλος-Περιγραφή αιτήματος Απαιτούμενο πεδίο'></td></tr>"; 
-       $out .="<tr><td nowrap='true' valign='top' width='113px' ><span  id='_x03a0__x03b5__x03c1__x03b9__x03'>
-                       <nobr>Περιγραφή</nobr></span></td><td valign='top' width='350px' class='ms-formbody'>
+               </td>
+            </tr>
+            <tr><td>Τίτλος-Περιγραφή αιτήματος </td>
+                <td><input type='text' value='' maxlength='255' name='TitleTxt' id='TitleTxt' title='Τίτλος-Περιγραφή αιτήματος Απαιτούμενο πεδίο'></td>
+            </tr>"; 
+     $out .="<tr><td nowrap='true' valign='top' width='113px' >
+                   <nobr>Περιγραφή</nobr>
+                 </td>
+                 <td valign='top' width='350px'  >
                    <span dir='none'><span dir='ltr'><textarea rows='10' cols='120' name='RequestDescription' title='Πρόγραμμα επεξεργασίας εμπλουτισμένου κειμένου Περιγραφή' class='ms-long'></textarea><input type='hidden' id='TextField_spSave'></span><br><span class='ms-formdescription'></span><br></span>				
                </td>
            </tr>";
-       $out .="<tr><td nowrap='true' valign='top' width='113px' ><span  id='_x039a__x03bb__x03ac__x03b4__x03'>
-           <nobr>Κλάδος/Τμήμα<span class='ms-accentText' title='Αυτό το πεδίο είναι υποχρεωτικό.'> *</span></nobr></span></td>
-           <td valign='top' width='350px' class='ms-formbody'>
-           <span dir='none'><select name='klados' id='Klados' title='Κλάδος/Τμήμα Απαιτούμενο πεδίο' class='ms-RadioText'><option value='' selected='selected'></option><option value='Κλάδος Αυτοκινήτων'>Κλάδος Αυτοκινήτων</option><option value='Λοιποί κλάδοι'>Λοιποί κλάδοι</option><option value='Εταιρική Διακυβέρνηση'>Εταιρική Διακυβέρνηση</option><option value='Οικονομική Διεύθυνση'>Οικονομική Διεύθυνση</option><option value='Οικονομική Διαχείριση'>Οικονομική Διαχείριση</option><option value='Τεχνική Διεύθυνση'>Τεχνική Διεύθυνση</option><option value='Τμήμα Ζημιών'>Τμήμα Ζημιών</option><option value='Πωλήσεις'>Πωλήσεις</option><option value='Νομικό τμήμα'>Νομικό τμήμα</option><option value='Γενική Διεύθυνση'>Γενική Διεύθυνση</option><option value='Τμήμα Πληροφορικής'>Τμήμα Πληροφορικής</option><option value='Υποκατάστημα Θεσσαλονίκης'>Υποκατάστημα Θεσσαλονίκης</option><option value='Κατάστημα Πάτρας'>Κατάστημα Πάτρας</option><option value='Κατάστημα Χαλκίδας'>Κατάστημα Χαλκίδας</option><option value='Κατάστημα Λυκόβρυσης'>Κατάστημα Λυκόβρυσης</option><option value='Κατάστημα Βόλου'>Κατάστημα Βόλου</option><option value='Κατάστημα Ιωαννίνων'>Κατάστημα Ιωαννίνων</option><option value='Κατάστημα Γαλατσίου'>Κατάστημα Γαλατσίου</option><option value='Κατάστημα Κιλκίς'>Κατάστημα Κιλκίς</option><option value='NP'>NP</option></select><br></span>
-           </td> </tr>";
+     $out .="<tr><td nowrap='true' valign='top' width='113px' >
+                  <nobr>Κλάδος/Τμήμα<span  title='Αυτό το πεδίο είναι υποχρεωτικό.'> *</nobr>
+               </td>
+               <td valign='top' width='350px'  >
+                  <select name='klados' id='Klados' title='Κλάδος/Τμήμα Απαιτούμενο πεδίο' class='ms-RadioText'>
+                     <option value='' selected='selected'></option>
+                     <option value='Κλάδος Αυτοκινήτων'>Κλάδος Αυτοκινήτων</option>
+                     <option value='Λοιποί κλάδοι'>Λοιποί κλάδοι</option>
+                     <option value='Εταιρική Διακυβέρνηση'>Εταιρική Διακυβέρνηση</option>
+                     <option value='Οικονομική Διεύθυνση'>Οικονομική Διεύθυνση</option>
+                     <option value='Οικονομική Διαχείριση'>Οικονομική Διαχείριση</option>
+                     <option value='Τεχνική Διεύθυνση'>Τεχνική Διεύθυνση</option>
+                     <option value='Τμήμα Ζημιών'>Τμήμα Ζημιών</option>
+                     <option value='Πωλήσεις'>Πωλήσεις</option>
+                     <option value='Νομικό τμήμα'>Νομικό τμήμα</option>
+                     <option value='Γενική Διεύθυνση'>Γενική Διεύθυνση</option>
+                     <option value='Τμήμα Πληροφορικής'>Τμήμα Πληροφορικής</option>
+                     <option value='Υποκατάστημα Θεσσαλονίκης'>Υποκατάστημα Θεσσαλονίκης</option>
+                     <option value='Κατάστημα Πάτρας'>Κατάστημα Πάτρας</option>
+                     <option value='Κατάστημα Χαλκίδας'>Κατάστημα Χαλκίδας</option>
+                     <option value='Κατάστημα Λυκόβρυσης'>Κατάστημα Λυκόβρυσης</option>
+                     <option value='Κατάστημα Βόλου'>Κατάστημα Βόλου</option>
+                     <option value='Κατάστημα Ιωαννίνων'>Κατάστημα Ιωαννίνων</option>
+                     <option value='Κατάστημα Κιλκίς'>Κατάστημα Κιλκίς</option>
+                     <option value='NP'>NP</option></select>
+              </td> 
+            </tr>";
        $out .="<tr>
-           <td nowrap='true' valign='top' width='113px' ><span  id=''>
-           <nobr>Προτεραιότητα</nobr>
-           </span></td>
-           <td valign='top' width='350px' class='ms-formbody'>
-               <span dir='none'><select name='priority' id='priority' title='Προτεραιότητα' class='ms-RadioText'><option value='(1) Υψηλή'>(1) Υψηλή</option><option value='(2) Κανονική' selected='selected'>(2) Κανονική</option><option value='(3) Χαμηλή'>(3) Χαμηλή</option></select><br></span>
-           </td>
-           </tr>" ; 
+                  <td nowrap='true' valign='top' width='113px' >
+                     <nobr>Προτεραιότητα</nobr></td>
+                  <td valign='top' width='350px'  >
+                     <select name='priority' id='priority' title='Προτεραιότητα' >
+                       <option value='(1) Υψηλή'>(1) Υψηλή</option>
+                       <option value='(2) Κανονική' selected='selected'>(2) Κανονική</option>
+                       <option value='(3) Χαμηλή'>(3) Χαμηλή</option></select>
+                  </td>  
+               </tr>" ; 
       
-       $out .= "<tr ><td nowrap='true' valign='top' width='113px' ><span  id='_x039f__x03bd__x03bf__x03bc__x00'>
-               <nobr>Ονομ/νυμο χρήστη που αφορούν οι αλλαγές</nobr></span></td>
-               <td valign='top' width='350px' class='ms-formbody'>
+       $out .= "<tr><td nowrap='true' valign='top' width='113px'>
+                  Ονομ/νυμο χρήστη που αφορούν οι αλλαγές</td>
+               <td valign='top' width='350px'>
                <div dir='none'>
                   <select name='UserFor' id='UserFor' class='ms-RadioText'>
                   <option value='' selected='selected'></option>";
-                  foreach ($result as $row) {   
-                   $out .= "<option value='".$row["firstname"]." ".$row["realname"] ."'>".$row["firstname"]." ".$row["realname"] ."</option>" ; 
-                  }
-
-                  //<input type='text' name='UserFor' id='UserFor' class='sp-peoplepicker-editorInput' size='50' autocomplete='off' value='' id='_EditorInput' title='Ονομ/νυμο χρήστη που αφορούν οι αλλαγές' autocorrect='off' autocapitalize='off' data-sp-peoplepickereditor='true'></div>
-              $out .= " </div>" ;
-               //echo Dropdown::getDropdownName("glpi_entities", $data['entities_id']) . "</td>";
-//                ini_set( "display_errors",1) ;
-// error_reporting(E_ALL); 
-    //  $out .=  Dropdown::getDropdownName("glpi_entities", $data['name']) ; 
+                     foreach ($result as $row) {   
+                       $out .= "<option value='".$row["firstname"]." ".$row["realname"] ."'>".$row["firstname"]." ".$row["realname"] ."</option>" ; 
+                     }
+                 $out .= " </div>" ;
+               
       $out .="<span id='InitialHelpText' class=''>Εισαγωγή ονομάτων ή διευθύνσεων ηλεκτρονικού ταχυδρομείου...<br>Για νέο χρήστη , συμπληρώστε το όνομ/νυμο μόνο στην περιγραφή.</span>
                </td>
                </tr>";
-       $out .=" <tr id='UserRights' style='display:none;'><td nowrap='true' valign='top' width='113px' >
-               <br><nobr><h3>Δικαιώματα Εφαρμογών</h3></nobr></td>
-               <td valign='top' width='100%' class='ms-formbody'>
+       $out .=" <tr id='UserRights' style='display:none;'>
+                <td nowrap='true' valign='top'  width='113px' border=1>
+               Δικαιώματα Εφαρμογών</td>
+               <td valign='top' width='350px'>
                <span dir='none'>
                    <table id='' cellpadding='2' cellspacing='1' width='100%' border='1'>
                    <tr><td><span title='IRP-Κύρια ασφαλιστική εφαρμογή'>
@@ -391,17 +415,21 @@ class Example extends CommonDBTM {
        <span class='ms-metadata'>Την πλήρη ευθύνη και έλεγχο έχει ο Προϊστάμενος/Διευθυντής του τμήματος γνωρίζοντας <br>&nbsp;τους κινδύνους που μπορεί να προκύψουν και να επηρεάσουν την λειτουργία της εταιρείας <br>&nbsp;π.χ. ιούς,μη θεμιτή μεταφορά δεδομένων.</span>   
     </td>
     </tr>";  
-    $out.= "<tr id='InternetPages'  style='display:none;'><td nowrap='true' valign='top' width='50%' ><span  id='_x03a3__x03b5__x03bb__x03af__x03'>
-    <br><nobr><h3>Σελίδες πρόσβασης στο internet</h3></nobr>
-    </span></td>
-    <td valign='top' width='50%' class='ms-formbody'>
-    <span dir='none'><span dir='ltr'><textarea rows='10' cols='120' name='InternetPages' title='Πρόγραμμα επεξεργασίας εμπλουτισμένου κειμένου Σελίδες πρόσβασης στο internet' class='ms-long'></textarea></span><br><span class='ms-formdescription'><a href=''>Κάντε κλικ για να λάβετε βοήθεια σχετικά με την προσθήκη βασικής μορφοποίησης HTML.</a></span><br></span>
-    </td>
-    </tr>";   
+    //
+    $out.= "<tr id='InternetPages' style='display:none;' >
+             <td nowrap='true' valign='top'>
+                  Σελίδες πρόσβασης στο internet
+               </td>
+               <td valign='top' >
+               <textarea rows='10' cols='80' name='InternetPages' >
+                     </textarea>
+               </td>
+            </tr>";   
+    //
     $out .= "<tr id='HWRights' style='display:none;' >
-    <td nowrap='true' valign='center' width='113px' ><span  id='_x0394__x03b9__x03ba__x03b1__x03'><br>
-    <nobr><h3>Δικαιώματα πρόσβασης σε hardware</h3></nobr></span></td>
-    <td valign='top' width='350px' class='ms-formbody'>
+    <td valign='top' width='113px' border=1>
+    Δικαιώματα πρόσβασης σε hardware</td>
+    <td valign='top' width='350px'>
        <span dir='none'>
        <table cellpadding='0' cellspacing='1'>
           <tbody>
