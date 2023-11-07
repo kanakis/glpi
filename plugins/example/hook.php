@@ -683,25 +683,7 @@ function plugin_example_Status($param) {
 function plugin_example_display_central() {
    $config = new Config();
    global $CFG_GLPI;
-   // echo "<script>console.log('got in plugin_example_display_central()');
-   //    function showForm()
-   //    {
-   //    console.log('showForm'); 
-   //    var getFormVisValue =  document.getElementById('MainFormTable').style.display;
-   //    console.log(getFormVisValue);  
-   //    if(getFormVisValue=='none')
-   //    {
-   //       getFormVisValue ='block';
-
-   //    } else {getFormVisValue ='none';}
-   //    console.log(document.getElementById('MainFormTable').style.display);
-   //    document.getElementById('MainFormTable').style.display = getFormVisValue ;
-   //    console.log(document.getElementById('MainFormTable').style.display);
-   //    }
-      
-   // </script>";
-   //$this->initForm($ID, $options);
-   //$this->showFormHeader($options);
+   
 
    echo "<tr><th colspan='2'>";
    echo "<div style='text-align:center; font-size:1em'>";
@@ -714,20 +696,14 @@ function plugin_example_display_central() {
 //echo $out ; 
       //alx    
       echo "<tr class='tab_bg_1'>";
-      echo "<td><div style='text-align:left;color:#DB6116'>&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href='/front/helpdesk.public.php?create_ticket=1' title='Πατήστε εδώ για να υποβάλετε αίτημα ' 
-                                       class='btn btn-sm btn-outline-secondary'
-                                       <span style='color:#DB6116;font-size:13pt ; font:Verdana ;' >+ Υποβολή αιτήματος υποστήριξης χρηστών – Help Desk</span></a> </div></td>";
-      echo "<td> &nbsp;</br>";
-      //echo $ID;
-      echo "</td>";
-
-      echo "<tr class='tab_bg_1'>";
-      echo "<td><div style='text-align:left;color:#DB6116'>&nbsp;&nbsp;&nbsp;&nbsp;
-                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' 
-                                class='btn btn-sm btn-outline-secondary'><button style='color:#DB6116; font-size:13pt'>+ Αλλαγές προσβάσεων | νέος σταθμός εργασίας  </button></spa> </div></td>";
+      echo "<td colspan=2 border=3>
+            <div class='btn btn-sm btn-outline-secondary' style='text-align:left;color:#DB6116'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href='/front/helpdesk.public.php?create_ticket=1' title='Πατήστε εδώ για να υποβάλετε αίτημα '>
+                              <span style='color:#DB6116;font-size:14pt ; font:Verdana ;' >+ Υποβολή αιτήματος υποστήριξης χρηστών – Help Desk</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <div class='btn btn-sm btn-outline-secondary'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' > <span style='color:#DB6116; font-size:13pt'>+ Αλλαγές προσβάσεων | νέος σταθμός εργασίας  </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </div></td>";
       echo "<td> ";
       // <a class="btn btn-sm btn-outline-secondary" href="/front/helpdesk.public.php?create_ticket=1">
       //       <span>
