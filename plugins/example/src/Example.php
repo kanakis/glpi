@@ -169,7 +169,7 @@ class Example extends CommonDBTM {
       $result = $DB->query($query);
       $numberOfRows = $DB->numrows($result);
       //echo "Rows:".$numberOfRows ;
-     //print_r($result);
+     print_r($result[1]);
       //$data = $DB->fetch_array($result);
 
       $params = $options;
