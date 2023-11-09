@@ -199,13 +199,14 @@ error_reporting(E_ALL);
 $newexample = new \GlpiPlugin\Example\Centralform;
 //echo "rrrrr";
 if($newTicketID<>0){
-   $contentToShow = "Επιτυχής καταχώρηση της εργασίας $newTicketID"; 
+   $contentToShow = "Επιτυχής καταχώρηση της εργασίας  $newTicketID"; 
    $newexample->testCC($contentToShow); 
   // $newexample->addticketSuccess($newTicketID) ;
    //Html::back();
   // Html::redirect($_SERVER['HTTP_REFERER']);
    //addMessageAfterRedirect($LANG['common'][54] . "&nbsp;: mailgate " . $mailgateID, false, ERROR);
-    Html::redirect("/") ; 
+   Session::addMessageAfterRedirect(__("Εγίνε καταχώρηση του αιτήματος <a href='/front/ticket.form.php?id=$newTicketID'> $newTicketID</a>", 'glpi'), true, INFO, false);
+   Html::redirect("/") ; 
 }
  
 //$example->display($_POST);

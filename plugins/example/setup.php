@@ -207,7 +207,7 @@ function plugin_init_example() {
    //$PLUGIN_HOOKS[Hooks::DISPLAY_CENTRAL]['example'] =[Centralform::class, 'centralrequestform'];
    $PLUGIN_HOOKS[Hooks::DISPLAY_CENTRAL]['example'] ="plugin_example_display_central";
 
-  // $PLUGIN_HOOKS[Hooks::assistance]['example'] ="plugin_example_display_central";
+   //$PLUGIN_HOOKS[Hooks::assistance]['example'] ="plugin_example_display_central";
    
    // $PLUGIN_HOOKS[Hooks::DISPLAY_LOGIN]['example'] = "plugin_example_display_login";
    // $PLUGIN_HOOKS[Hooks::INFOCOM]['example'] = "plugin_example_infocom_hook";

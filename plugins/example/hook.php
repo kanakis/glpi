@@ -696,7 +696,7 @@ function plugin_example_display_central() {
  
 //echo $out ; 
       //alx    
-      echo "Profile:".$_SESSION['glpiactiveprofile']['id'];
+      //echo "Profile:".$_SESSION['glpiactiveprofile']['id'];
       if($_SESSION['glpiactiveprofile']['id']!="4"){        //check for super admin profile!
       echo "<tr class='tab_bg_1'>";
       echo "<td colspan=2 border=3>".$_SESSION['glpiactiveprofile']['id']."
