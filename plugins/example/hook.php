@@ -32,7 +32,8 @@
 // Original Author of file:
 // Purpose of file:
 // ----------------------------------------------------------------------
-
+use Glpi\Dashboard\Right as DashboardRight;
+use Glpi\Dashboard\Dashboard;
 use GlpiPlugin\Example\Dropdown;
 use GlpiPlugin\Example\Example;
 use Dropdown as GlpiDropdown;
@@ -695,16 +696,19 @@ function plugin_example_display_central() {
  
 //echo $out ; 
       //alx    
+      echo "Profile:".$_SESSION['glpiactiveprofile']['id'];
+      if($_SESSION['glpiactiveprofile']['id']!="4"){        //check for super admin profile!
       echo "<tr class='tab_bg_1'>";
-      echo "<td colspan=2 border=3>
-            <div class='btn btn-sm btn-outline-secondary' style='text-align:left;color:#DB6116'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      echo "<td colspan=2 border=3>".$_SESSION['glpiactiveprofile']['id']."
+            <div class='btn btn-sm btn-outline-secondary' style='text-align:left;>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <a href='/front/helpdesk.public.php?create_ticket=1' title='Πατήστε εδώ για να υποβάλετε αίτημα '>
-                              <span style='color:#DB6116;font-size:14pt ; font:Verdana ;' >+ Υποβολή αιτήματος υποστήριξης χρηστών – Help Desk</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                              <span style='font-size:14pt ; font:Verdana ;' >Υποβολή αιτήματος υποστήριξης χρηστών – Help Desk</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                                 <div class='btn btn-sm btn-outline-secondary'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' > <span style='color:#DB6116; font-size:13pt'>+ Αλλαγές προσβάσεων | νέος σταθμός εργασίας  </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                <a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' > <span style=' font-size:13pt'> Αλλαγές προσβάσεων - νέος σταθμός εργασίας  </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                             </div></td>";
       echo "<td> ";
+      }
       // <a class="btn btn-sm btn-outline-secondary" href="/front/helpdesk.public.php?create_ticket=1">
       //       <span>
       //                      <i class="ti ti-plus"></i>
