@@ -699,35 +699,50 @@ function plugin_example_display_central() {
       //alx    
       //".$_SESSION['glpiactiveprofile']['id']."
       //echo "Profile:".$_SESSION['glpiactiveprofile']['id'];
+      // Groups που επιτρεπετε να δούνε το κουμπί υποβολής δημιουργιας σταθμου εργασίας .
       $groupsToCheckForArray= array("1","15","11","10");
+      // μεταβλητη για το αν θα δείξει το ws button . Default false για να μήν το δείξει .
       $showAddWSBtn = false;
 
       if($_SESSION['glpiactiveprofile']['id']!="4"){        //check for super admin profile!
-         // echo 
+         //περνουμε τα γροθπ του χρήστη .
          $tmp_user_groups = Group_User::getUserGroups($_SESSION['glpiID']);
 
          foreach ($tmp_user_groups as $current_group) 
          {
             if(in_array($current_group['id'], $groupsToCheckForArray ) ) { $showAddWSBtn = true ; }
          }
-         echo "<tr class='table card'><td colspan=2>".$showAddWSBtn."||".print_r( $_SESSION['glpigroups'])."</td></tr>";
+         //δημιουργία κάρτας με πινακα .
+         echo "<div class='card'>";
+         echo "<table class='tab_cadrehov'><tbody>";
+         //Τιτλος
+         echo "<tr class='noHover'>
+                  <th style='text-align:center ; '>Υποβολή Αιτήμάτων</th>
+               </th>";
+         //σώμα 
+         // echo "<tr class='table card'>
+         //          <td colspan=2>".$showAddWSBtn."||".print_r( $_SESSION['glpigroups'])."</td>
+         //       </tr>";
          echo "<tr class='table card' >";
-         echo "<td colspan=2 class='tab_cadreho' style='margin:0px auto;'>
-               <div class='btn btn-sm btn-outline-secondary' style='text-align:canter; width:60% padding:5px;'>
-                  <a href='/front/helpdesk.public.php?create_ticket=1' title='Πατήστε εδώ για να υποβάλετε αίτημα '>
-                     <span style='font-size:14pt ; font:Verdana ;' >Υποβολή αιτήματος υποστήριξης χρηστών – Help Desk</span>
-                  </a>
-               </div>  ";
+         echo "   <td class='tab_bg_2' style='margin:0px auto;'>
+                     <div class='btn btn-sm btn-outline-secondary' style='text-align:canter; width:80% padding:5px;'>
+                        <a href='/front/helpdesk.public.php?create_ticket=1' title='Πατήστε εδώ για να υποβάλετε αίτημα '>
+                           <span style='font-size:14pt ; font:Verdana ;' >Υποβολή αιτήματος υποστήριξης χρηστών – Help Desk</span>
+                        </a>
+                     </div>  ";
          if($showAddWSBtn) {      
-               echo "<div class='btn btn-sm btn-outline-secondary' style='width=70%;'>
-                  <a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' > 
-                     <span style=' font-size:14pt'> Αλλαγές προσβάσεων - νέος σταθμός εργασίας </span>
-                  </a>
-               </div>
-               " ; 
+            echo "   <div class='btn btn-sm btn-outline-secondary' style='width=70%;'>
+                        <a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' > 
+                           <span style=' font-size:14pt'> Αλλαγές προσβάσεων - νέος σταθμός εργασίας </span>
+                        </a>
+                     </div>" ; 
          }
-         echo "</td>";
-      echo "<td> ";
+         echo "   </td>";
+         echo "</tr> ";
+
+         echo "</tbody></table>"; // κλεισιμο του πίνακα  κάρτας 
+         echo "</div>"; // κλεισιμο της καρτας των κουμπιών 
+                        
       }
       // <a class="btn btn-sm btn-outline-secondary" href="/front/helpdesk.public.php?create_ticket=1">
       //       <span>
@@ -750,6 +765,7 @@ function plugin_example_display_central() {
 
    //$config->showFormExample() ;
    //echo "</div>";
+   echo "</div>";
    echo "</th></tr>";
 }
 
