@@ -41,6 +41,7 @@ use User;
 use Group; 
 use Ticket ; 
 use Session ; 
+use Group_User ; 
 
 // Hook called on profile change
 // Good place to evaluate the user right on this plugin
@@ -687,7 +688,7 @@ function plugin_example_display_central() {
    
 
    echo "<tr><th colspan='2'>";
-   echo "<div style='text-align:center; font-size:1em'>";
+   echo "<div style='text-align:center; font-size:1em; margin: 0px auto;' >";
    //echo __("Plugin example displays on central page", "example");
    //echo " <div style='text-align:left;color:#DB6116'><a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' onhover=''><button> Υποβολή αιτήματος - εργασίας </button></spa> </div>" ; 
    
@@ -696,17 +697,36 @@ function plugin_example_display_central() {
  
 //echo $out ; 
       //alx    
+      //".$_SESSION['glpiactiveprofile']['id']."
       //echo "Profile:".$_SESSION['glpiactiveprofile']['id'];
+      $groupsToCheckForArray= array("1","15","11","10");
+      $showAddWSBtn = false;
+
       if($_SESSION['glpiactiveprofile']['id']!="4"){        //check for super admin profile!
-      echo "<tr class='tab_bg_1'>";
-      echo "<td colspan=2 border=3>".$_SESSION['glpiactiveprofile']['id']."
-            <div class='btn btn-sm btn-outline-secondary' style='text-align:left;>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href='/front/helpdesk.public.php?create_ticket=1' title='Πατήστε εδώ για να υποβάλετε αίτημα '>
-                              <span style='font-size:14pt ; font:Verdana ;' >Υποβολή αιτήματος υποστήριξης χρηστών – Help Desk</span></a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <div class='btn btn-sm btn-outline-secondary'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                <a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' > <span style=' font-size:13pt'> Αλλαγές προσβάσεων - νέος σταθμός εργασίας  </span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                            </div></td>";
+         // echo 
+         $tmp_user_groups = Group_User::getUserGroups($_SESSION['glpiID']);
+
+         foreach ($tmp_user_groups as $current_group) 
+         {
+            if(in_array($current_group['id'], $groupsToCheckForArray ) ) { $showAddWSBtn = true ; }
+         }
+         echo "<tr class='table card'><td colspan=2>".$showAddWSBtn."||".print_r( $_SESSION['glpigroups'])."</td></tr>";
+         echo "<tr class='table card' >";
+         echo "<td colspan=2 class='tab_cadreho' style='margin:0px auto;'>
+               <div class='btn btn-sm btn-outline-secondary' style='text-align:canter; width:60% padding:5px;'>
+                  <a href='/front/helpdesk.public.php?create_ticket=1' title='Πατήστε εδώ για να υποβάλετε αίτημα '>
+                     <span style='font-size:14pt ; font:Verdana ;' >Υποβολή αιτήματος υποστήριξης χρηστών – Help Desk</span>
+                  </a>
+               </div>  ";
+         if($showAddWSBtn) {      
+               echo "<div class='btn btn-sm btn-outline-secondary' style='width=70%;'>
+                  <a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' > 
+                     <span style=' font-size:14pt'> Αλλαγές προσβάσεων - νέος σταθμός εργασίας </span>
+                  </a>
+               </div>
+               " ; 
+         }
+         echo "</td>";
       echo "<td> ";
       }
       // <a class="btn btn-sm btn-outline-secondary" href="/front/helpdesk.public.php?create_ticket=1">
