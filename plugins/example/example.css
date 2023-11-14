@@ -27,3 +27,35 @@
  */
 
 /* empty file */
+.example_TicketBtns 
+{ 
+     text-align:center;
+     width:100%; 
+     padding:5px;
+     margin: 5px auto 5px auto; 
+     border : 1px solid #000000;
+} 
+/* style='width=80%;padding :5px;' */
+.example_Divider 
+{
+    width :100% ; 
+    height : 5px ; 
+    background-color: #02537f;
+    margin : 10px auto 2px auto; 
+}
+
+.example_table_TitleTD 
+{
+    display:block;
+    margin:0px auto; 
+    padding:5px;
+    text-align: center ;
+}
+
+.example_table
+{
+    width: 95%;
+    border-color : #2b2b2b;
+    border : 1px solid #2b2b2b ; 
+
+}

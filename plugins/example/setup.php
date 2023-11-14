@@ -102,7 +102,7 @@ function plugin_init_example() {
       //       $PLUGIN_HOOKS['submenu_entry']['example']['options']['optionname']['links']["<img  src='".$CFG_GLPI["root_doc"]."/pics/menu_showall.png' title='".__s('Show all')."' alt='".__s('Show all')."'>"] = '/plugins/example/index.php';
       //       $PLUGIN_HOOKS['submenu_entry']['example']['options']['optionname']['links'][__s('Test link', 'example')] = '/plugins/example/index.php';
 
-      $PLUGIN_HOOKS[Hooks::HELPDESK_MENU_ENTRY]['example'] = true;
+      $PLUGIN_HOOKS[Hooks::HELPDESK_MENU_ENTRY]['example'] = false;
       $PLUGIN_HOOKS[Hooks::HELPDESK_MENU_ENTRY_ICON]['example'] = 'fas fa-puzzle-piece';
    }
 
@@ -178,8 +178,10 @@ function plugin_init_example() {
    $PLUGIN_HOOKS['assign_to_ticket']['example'] = 1;
 
    // Add specific files to add to the header : javascript or css
-   $PLUGIN_HOOKS[Hooks::ADD_JAVASCRIPT]['example'] = 'example.js';
-   $PLUGIN_HOOKS[Hooks::ADD_CSS]['example']        = 'example.css';
+   $PLUGIN_HOOKS[Hooks::ADD_JAVASCRIPT]['example'] = '.\example.js';
+   $PLUGIN_HOOKS[Hooks::ADD_CSS]['example']        = '.\example.css';
+   // Add specific CSS
+   
 
    // request more attributes from ldap
    //$PLUGIN_HOOKS['retrieve_more_field_from_ldap']['example']="plugin_retrieve_more_field_from_ldap_example";

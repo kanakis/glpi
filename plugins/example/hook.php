@@ -586,6 +586,7 @@ function plugin_example_uninstall() {
    foreach ($DB->request('glpi_notifications', $options) as $data) {
       $notif->delete($data);
    }
+
    // Old version tables
    if ($DB->tableExists("glpi_dropdown_plugin_example")) {
       $query = "DROP TABLE `glpi_dropdown_plugin_example`";
@@ -714,29 +715,30 @@ function plugin_example_display_central() {
          }
          //δημιουργία κάρτας με πινακα .
          echo "<div class='card'>";
-         echo "<table class='tab_cadrehov'><tbody>";
+         echo "<table class='tab_cadrehov example_table'><tbody>";
          //Τιτλος
          echo "<tr class='noHover'>
-                  <th style='text-align:center ; '>Υποβολή Αιτήμάτων</th>
+                  <th style='text-align:center; font-size:15pt ; '>Υποβολή Αιτήμάτων</th>
                </th>";
          //σώμα 
          // echo "<tr class='table card'>
          //          <td colspan=2>".$showAddWSBtn."||".print_r( $_SESSION['glpigroups'])."</td>
          //       </tr>";
-         echo "<tr class='table card' >";
-         echo "   <td class='tab_bg_2' style='margin:0px auto;'>
-                     <div class='btn btn-sm btn-outline-secondary' style='text-align:canter; width:80% padding:5px;'>
+         echo "<tr class='table card ' >";
+         echo "   <td class='tab_bg_2 example_table_TitleTD' >
+                     <div class='btn btn-sm btn-outline-secondary example_TicketBtns'>
                         <a href='/front/helpdesk.public.php?create_ticket=1' title='Πατήστε εδώ για να υποβάλετε αίτημα '>
                            <span style='font-size:14pt ; font:Verdana ;' >Υποβολή αιτήματος υποστήριξης χρηστών – Help Desk</span>
                         </a>
                      </div>  ";
          if($showAddWSBtn) {      
-            echo "   <div class='btn btn-sm btn-outline-secondary' style='width=70%;'>
+            echo "   <div class='btn btn-sm btn-outline-secondary example_TicketBtns' >
                         <a href='/plugins/example/front/example.form.php' title='Πατήστε εδώ για να υποβάλετε αίτημα ή εργασία' > 
                            <span style=' font-size:14pt'> Αλλαγές προσβάσεων - νέος σταθμός εργασίας </span>
                         </a>
                      </div>" ; 
          }
+         echo "   <div class='example_Divider'></div>";
          echo "   </td>";
          echo "</tr> ";
 
